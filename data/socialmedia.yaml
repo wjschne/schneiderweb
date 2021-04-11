@@ -1,0 +1,7 @@
+accounts:
+  - name: schneider@temple.edu
+    url: "mailto: schneider@temple.edu"
+  - name: Twitter
+    url: "https://twitter.com/WJoelSchneider"
+  - name: Github
+    url: "https://github.com/wjschne"

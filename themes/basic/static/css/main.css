@@ -1,0 +1,49 @@
+.container{
+  margin: 0 auto;
+  width: 70%;
+}
+
+nav,footer {
+  background-color:#333;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0px 10px 0px;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+}
+
+nav > a {
+  flex: 1;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+}
+
+@media only screen and (min-width: 768px) {
+  nav { flex-direction: row; }
+  .project-container { display: flex; }
+  .project-container .project-list { width: 20%; }
+  .project-container .project { flex: 1;}
+}
+
+img{
+  max-width: 70%;
+  height: auto;
+}
+
+.oss {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.oss article {
+  border: 1px solid #ddd;
+  box-shadow: 3px 3px 3px #ddd;
+  margin: 0.5%;
+  padding: 0.5%;
+  width: 30%;
+}
