@@ -10,10 +10,12 @@ nav,footer {
   padding: 10px 0px 10px 0px;
 }
 
-nav {
+nav  {
   display: flex;
   flex-direction: column;
 }
+
+
 
 nav > a {
   flex: 1;
@@ -24,4 +26,28 @@ nav > a {
 
 @media only screen and (min-width: 768px) {
   nav { flex-direction: row; }
+  .project-container { display: flex; }
+  .project-container .project-list { width: 20%; }
+  .project-container .project { flex: 1;}
+  div.footercontact { flex-direction: row; }
+}
+
+img{
+  max-width: 70%;
+  height: auto;
+}
+
+
+.oss {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.oss article {
+  border: 1px solid #ddd;
+  box-shadow: 3px 3px 3px #ddd;
+  margin: 0.5%;
+  padding: 0.5%;
+  width: 30%;
 }
