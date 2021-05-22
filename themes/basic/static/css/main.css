@@ -1,49 +1,134 @@
-.container{
-  margin: 0 auto;
-  width: 70%;
-}
 
-nav,footer {
-  background-color:#333;
-  color: #fff;
-  text-align: center;
-  padding: 10px 0px 10px 0px;
-}
 
-nav {
-  display: flex;
-  flex-direction: column;
-}
-
-nav > a {
-  flex: 1;
-  text-align: center;
+a, a:link {
   text-decoration: none;
-  color: #fff;
+  color:#4169e1;
 }
 
-@media only screen and (min-width: 768px) {
-  nav { flex-direction: row; }
-  .project-container { display: flex; }
-  .project-container .project-list { width: 20%; }
-  .project-container .project { flex: 1;}
+a:visited {
+  text-decoration: none;
+  color:#4169e1;
 }
 
-img{
-  max-width: 70%;
-  height: auto;
+a:hover {
+  text-decoration: underline;
 }
 
-.oss {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+a:active {
+  text-decoration: underline;
 }
 
-.oss article {
-  border: 1px solid #ddd;
-  box-shadow: 3px 3px 3px #ddd;
-  margin: 0.5%;
-  padding: 0.5%;
-  width: 30%;
+a:link.navcolor {
+  color: #eeeeff;
+}
+
+
+img[src$='#width500'] {
+	width:150px;
+	border-radius:5%;
+	float: left;
+	margin: 0px 20px 20px 0px;
+}
+
+p img {
+  width: 100%;
+}
+
+
+h1, h2, h3, h4 {
+  font-weight: 600;
+}
+
+/* @media (min-width: 1200px) {
+    .container{
+        max-width: 960px;
+    }
+} */
+
+
+.section-nav li.active > a {
+	color: #222;
+}
+
+.section-nav {
+	padding-right: 0;
+	border-right: 1px solid #efefef;
+}
+
+.section-nav ol li a {
+	text-decoration: none;
+	display: block;
+	padding-top: 5px;
+	color: #aaa;
+}
+
+.section-nav ol li ul li a {
+  padding-left: 10px;
+}
+
+.section-nav ul, .section-nav ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.section-nav a:hover,
+.section-nav a:focus {
+	color: #666;
+}
+
+.section-nav li {
+	margin-right: 1rem;
+}
+
+.section-nav ol {
+	font-size: 16pt;
+  color:
+}
+
+.presentation .section-nav ol li ul {
+	font-size: 14pt;
+  display: none;
+}
+
+.presentation .section-nav ol li:hover ul {
+	display: block;
+}
+
+.smallcaps {
+  font-variant: small-caps;
+}
+
+
+nav[data-toggle="toc"] {
+  top: 42px;
+}
+
+nav[data-toggle=toc] .nav>li>a {
+  font-size:15pt;
+}
+
+nav[data-toggle=toc] .nav .nav>li>a  {
+  font-size:12pt;
+}
+
+/* small screens */
+@media (max-width: 768px) {
+  /* override stickyness so that the navigation does not follow scrolling */
+  nav[data-toggle="toc"] {
+    margin-bottom: 42px;
+    position: static;
+  }
+
+  /* PICK ONE */
+  /* don't expand nested items, which pushes down the rest of the page when navigating */
+  /*nav[data-toggle="toc"] .nav .active .nav {
+    display: none;
+  } */
+  /* alternatively, if you *do* want the second-level navigation to be shown (as seen on this page on mobile), use this */
+  
+  nav[data-toggle='toc'] .nav .nav {
+    display: block;
+  }
+  
 }

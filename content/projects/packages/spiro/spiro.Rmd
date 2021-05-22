@@ -1,0 +1,35 @@
+---
+title: spiro
+draft: false
+image: "https://wjschne.github.io/spiro/reference/figures/logo.svg"
+alt_text: digital spirograph
+image_width: 200px
+myprojects: [package]
+summary: An R package for making digital spirographs
+link: "https://wjschne.github.io/spiro/index.html"
+tech_used:
+    - R
+    - svg
+---
+
+Making digital spirographs is fun! I made an R package called [spiro](https://wjschne.github.io/spiro/index.html) that can make animated spirographs like this one:
+
+![Illusively Elusive Allusion](/images/illusively_elusive_allusion.svg)
+
+[Package Site](https://wjschne.github.io/spiro/index.html)
+
+[Tutorial](https://wjschne.github.io/spiro/articles/HowToUse/spiro.html)
+
+[My Gallery](https://wjschne.github.io/spirogallery/#1)
+
+```{r embed-xaringan, echo=FALSE}
+xaringanExtra::embed_xaringan(url = "https://wjschne.github.io/spirogallery/#1", ratio = "16:9")
+```
+
+
+
+
+
+
+
+

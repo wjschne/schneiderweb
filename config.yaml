@@ -4,6 +4,7 @@ title: "W. Joel Schneider"
 theme: basic
 googleAnalytics: ''
 disqusShortname: ''
+sectionPagesMenu: main
 ignoreFiles:
   - \.Rmd$
   - \.Rmarkdown$
@@ -14,12 +15,19 @@ permalinks:
   post: /:year/:month/:day/:slug/
 menu:
   main:
-    - name: About Me
-      url: /about/
-    - name: GitHub
-      url: https://github.com/wjschne
-    - name: Twitter
-      url: https://twitter.com/WJoelSchneider
+    - name: Home
+      url: /
+      pre: <i class='fa fa-home'></i>
+      weight: 1
+    - name: Vita
+      url: /Vita
+      weight: 8
+    - name: Presentations
+      url: /presentations
+      weight: 3
+    - name: Contact Me
+      url: /contact
+      pre: <i class="fas fa-id-card"></i>
 params:
   author: W. Joel Schneider
   gh_url: https://api.github.com/users
@@ -27,7 +35,7 @@ params:
   MathJaxCDN: //cdnjs.cloudflare.com/ajax/libs
   MathJaxVersion: 2.7.5
   description: W. Joel Schneider's Academic Website
-  favicon: favicon.ico
+  favicon: headshot.png
   highlightjsCDN: //cdnjs.cloudflare.com/ajax/libs
   highlightjsLang:
     - r
@@ -39,3 +47,7 @@ params:
     height: 60
     url: headshot.png
     width: 60
+taxonomies:
+  category: categories
+  tag: tags
+  myproject: myprojects

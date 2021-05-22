@@ -1,0 +1,70 @@
+---
+title: Concatenating vectors unless a vector is empty
+author: W. Joel Schneider
+date: '2021-05-13'
+slug: concatenating-vectors-unless-a-vector-is-empty
+categories: []
+summary: <pre>paste0(empty_vector, non_empty_vector, recycle0 = TRUE)</pre> returns an empty vector.
+tags:
+  - R
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+```
+
+I often need to add a prefix or suffix to a character vector:
+
+```{r}
+library(tidyverse)
+x <- c("A", "B", "C")
+paste0(x, "_1")
+```
+
+However, if the vector is empty, I do not want bare prefixes or suffixes like this:
+
+```{r}
+x <- character(0)
+paste0(x, "_1")
+```
+
+I used to write a lot of tedious `if` statements like this:
+
+```{r}
+if (length(x) == 0) {
+  y <- character(0)
+} else {
+  y <- paste0(x, "_1")
+}
+```
+
+For R 4.0.1 and later versions, the `paste` and `paste0` functions acquired the `recycle0` argument. Setting `recycle0` to `TRUE` returns an empty vector if at least one string is empty:
+
+```{r}
+paste0(x, "_1", recycle0 = TRUE)
+```
+
+If you need to work with an earlier version of R, you can use the `sprintf` function instead:
+
+```{r}
+# Non-empty vector
+x <- c("A", "B", "C")
+sprintf("%s_1", x)
+
+# Empty vector
+x <- character(0)
+sprintf("%s_1", x)
+```
+
+The `glue` function from the glue package also works nicely:
+
+```{r}
+# Non-empty vector
+x <- c("A", "B", "C")
+glue::glue("{x}_1")
+
+# Empty vector
+x <- character(0)
+glue::glue("{x}_1")
+```
+

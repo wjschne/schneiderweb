@@ -1,0 +1,21 @@
+interests:
+  - name: Individuals differences
+    subs:
+      - Abilities
+      - Personality
+      - Interests
+      - Psychopathology
+  - name: Assessment
+    subs:
+      - Learning Disorders
+      - Psychometrics
+      - Clinical Software
+  - name: Statistics
+    subs:
+      - Test Theory
+      - Factor Analysis & Structural Models
+      - Multilevel Modeling
+  - name: Counseling
+    subs:
+      - Individual and Group
+      - Dialectical Behavior Therapy

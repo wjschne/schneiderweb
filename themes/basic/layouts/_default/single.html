@@ -1,7 +1,18 @@
 {{ define "main" }}
 
-<h2>{{ .Title }}</h2>
+ <div class="row">
+  <div class=col-md-3>
+    <nav id="toc" data-toggle="toc" class="sticky-top"></nav>
+  </div>
+    
+  <div class=col-md-9>
 
-{{ .Content }}
+  <h1 data-toc-skip>{{ .Title }}</h1>
+         
+    {{ .Content }}
 
-{{ end }}
+  </div>  
+
+</div>
+
+ {{ end }}

@@ -1,0 +1,12 @@
+---
+output:
+  html_fragment:
+    number_sections: true
+    smart: true
+    keep_md: true
+bibliography: ../data/My Chapters.json
+nocite: "@*"
+csl: apa-cv.csl
+
+---
+

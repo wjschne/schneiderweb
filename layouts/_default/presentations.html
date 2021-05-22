@@ -1,0 +1,67 @@
+{{ define "main" }}
+
+<div class="presentation row">
+
+  <div class='col-md-3'>
+    
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+    </nav>
+  </div>
+
+  <div class="col-lg-9">
+    <section id="main" class="my-2">
+
+      <h1>{{ .Title }}</h1>
+
+        {{ .Content }}
+      <h2 id="pftgu">Psychometrics from the Ground Up</h2>
+      {{ range .Site.Data.psychometricsvids.fromthegroundup }}
+        <section id="{{ .id }}" class="my-5">
+          <h3><a target="_blank" href="https://youtu.be/{{ .id }}&list=PL7CF0E765FAF9FBFE">{{ .title }} </a></h3>
+          <p>{{ .summary }}</p>
+          <a href="https://youtu.be/{{ .id }}&list=PL7CF0E765FAF9FBFE" target="_blank">
+            <p><img src="https://img.youtube.com/vi/{{ .id }}/0.jpg" alt="" style="width:400px"></p>
+          </a>
+          <!---<div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{ .id }}?autoplay=0" allowfullscreen title="{{ .title }}"></iframe>
+          </div>--->
+        </section>
+
+      {{ end }}
+
+      <h2 id="oav">Other Assessment Videos</h2>
+      {{ range .Site.Data.psychometricsvids.assessmentvids }}
+        <section id="{{ .id }}" class="my-5">
+          <h3><a target="_blank" href="https://youtu.be/{{ .id }}">{{ .title }} </a></h3>
+          <p>{{ safeHTML .summary }}</p>
+          <a href="https://youtu.be/{{ .id }}" target="_blank">
+            <p><img src="https://img.youtube.com/vi/{{ .id }}/0.jpg" alt="" style="width:400px"></p>
+          </a>
+          <!---<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+            <iframe src="https://www.youtube.com/embed/{{ .id }}?autoplay=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+          </div>--->
+        </section>
+
+      {{ end }}
+
+      <h2 id="audiopresentations">Audio Presentations</h2>
+      {{ range .Site.Data.psychometricsvids.audiopresentations }}
+        <section id="{{ .id }}" class="my-5">
+          <h3><a target="_blank" href="{{ .link }}">{{ .title }} </a></h3>
+          <p>{{ safeHTML  .summary }}</p>
+          <iframe src="{{ .embed }}" frameborder="0" scrolling="no"></iframe>
+        </section>
+
+      {{ end }}
+    </section>
+
+  </div>
+
+
+
+
+
+</div>
+
+
+{{ end }}

@@ -1,0 +1,16 @@
+---
+title: First Post
+author: W. Joel Schneider
+date: '2021-04-09'
+slug: first-post
+categories: []
+tags: []
+summary: First post
+---
+
+This is my first post.
+
+```{r}
+diag(4)
+```
+

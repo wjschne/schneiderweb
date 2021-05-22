@@ -1,0 +1,51 @@
+---
+title: Concatenating vectors unless a vector is empty
+author: W. Joel Schneider
+date: '2021-05-13'
+slug: concatenating-vectors-unless-a-vector-is-empty
+categories: []
+summary: <pre>paste0(empty_vector, non_empty_vector, recycle0 = TRUE)</pre> returns an empty vector.
+tags:
+  - R
+---
+
+<script src="{{< blogdown/postref >}}index_files/header-attrs/header-attrs.js"></script>
+
+
+<p>I often need to add a prefix or suffix to a character vector:</p>
+<pre class="r"><code>library(tidyverse)
+x &lt;- c(&quot;A&quot;, &quot;B&quot;, &quot;C&quot;)
+paste0(x, &quot;_1&quot;)</code></pre>
+<pre><code>## [1] &quot;A_1&quot; &quot;B_1&quot; &quot;C_1&quot;</code></pre>
+<p>However, if the vector is empty, I do not want bare prefixes or suffixes like this:</p>
+<pre class="r"><code>x &lt;- character(0)
+paste0(x, &quot;_1&quot;)</code></pre>
+<pre><code>## [1] &quot;_1&quot;</code></pre>
+<p>I used to write a lot of tedious <code>if</code> statements like this:</p>
+<pre class="r"><code>if (length(x) == 0) {
+  y &lt;- character(0)
+} else {
+  y &lt;- paste0(x, &quot;_1&quot;)
+}</code></pre>
+<p>For R 4.0.1 and later versions, the <code>paste</code> and <code>paste0</code> functions acquired the <code>recycle0</code> argument. Setting <code>recycle0</code> to <code>TRUE</code> returns an empty vector if at least one string is empty:</p>
+<pre class="r"><code>paste0(x, &quot;_1&quot;, recycle0 = TRUE)</code></pre>
+<pre><code>## character(0)</code></pre>
+<p>If you need to work with an earlier version of R, you can use the <code>sprintf</code> function instead:</p>
+<pre class="r"><code># Non-empty vector
+x &lt;- c(&quot;A&quot;, &quot;B&quot;, &quot;C&quot;)
+sprintf(&quot;%s_1&quot;, x)</code></pre>
+<pre><code>## [1] &quot;A_1&quot; &quot;B_1&quot; &quot;C_1&quot;</code></pre>
+<pre class="r"><code># Empty vector
+x &lt;- character(0)
+sprintf(&quot;%s_1&quot;, x)</code></pre>
+<pre><code>## character(0)</code></pre>
+<p>The <code>glue</code> function from the glue package also works nicely:</p>
+<pre class="r"><code># Non-empty vector
+x &lt;- c(&quot;A&quot;, &quot;B&quot;, &quot;C&quot;)
+glue::glue(&quot;{x}_1&quot;)</code></pre>
+<pre><code>## A_1
+## B_1
+## C_1</code></pre>
+<pre class="r"><code># Empty vector
+x &lt;- character(0)
+glue::glue(&quot;{x}_1&quot;)</code></pre>

@@ -1,16 +1,56 @@
 {{ define "main" }}
 
-  <h2>{{ .Title }}</h2>
- 	
-  {{ .Content }}
- 	
-<section class="projects">
-    {{ range .Pages }}
-    <section class="project">
-      <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-      <p> {{ .Summary }} </p>
-    </section>
-  {{ end }}
-</section>
- 	
+
+
+
+ {{ .Content }}
+ <div class="row">
+    <div class=col-md-3>
+      <nav id="toc" data-toggle="toc" class="sticky-top"></nav>
+    </div>
+    
+    <div class=col-md-9>
+      <section class="my-2">
+         <h1 data-toc-skip>{{ .Title }}</h1>
+         
+         <h1> Books </h1>
+        {{ range .Site.Taxonomies.myprojects.book }}
+        <h2><a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a></h2>
+        
+        {{ if isset .Params "image" }}
+          <p>
+            <a href="{{ .RelPermalink }}">
+              <img src={{ .Params.image}} style="width: {{ if .Params.image_width }}{{- .Params.image_width -}} {{ else }}100%{{ end }};">
+            </a>
+          </p>
+        {{ end }}
+
+  
+  {{ end }}  
+  
+  <h1> Packages </h1>
+  {{ range .Site.Taxonomies.myprojects.package }}
+        <h2><a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a></h2>
+        
+        {{ if isset .Params "image" }}
+          <p>
+            <a href="{{ .RelPermalink }}">
+              <img src={{ .Params.image}} style="width: {{ if .Params.image_width }}{{- .Params.image_width -}} {{ else }}100%{{ end }};">
+            </a>
+          </p>
+        {{ end }}
+
+  
+  {{ end }}          
+
+
+      </section>
+      
+      
+
+
+
+    </div>  
+  </div>
+
 {{ end }}

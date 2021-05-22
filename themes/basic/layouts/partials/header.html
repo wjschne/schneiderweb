@@ -1,3 +1,36 @@
 <header>
-  <h2>{{ .Site.Title }}</h2>
+  <!---<table id="headertable">
+    <thead>
+     <colgroup>
+      <col style="width: 10%">
+      <col style="width: 10%">
+      <col style="width: 10%">
+      <col style="width: 10%">
+      <col style="width: 20%">
+      <col style="width: 10%">
+      <col style="width: 10%">
+      <col style="width: 10%">
+      <col style="width: 10%">
+    </colgroup>
+      <tr>
+                {{ range first 4 .Site.Data.spiro.spiros }}
+        <th><a href="/images/{{ .file }}" target="_blank" title="{{ .title }}"><img src="/images/{{ .file }}" alt="logo" class="spiro"></a></th>
+        {{ end }}
+
+        <th> <a href="/" id="sitetitle"> W. Joel Schneider</a></th>
+
+        {{ range last 4 .Site.Data.spiro.spiros }}
+        <th><a href="/images/{{ .file }}" target="_blank" title="{{ .title }}" ><img src="/images/{{ .file }}" alt="logo" class="spiro"></a></th>
+        {{ end }}
+
+        </tr>
+    </thead>
+
+  </table>--->
+
+
+  <link rel="alternate" type="application/rss+xml" href="/index.xml">
+  
+
+  {{- partial "nav.html" . -}}
 </header>

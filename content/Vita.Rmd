@@ -1,0 +1,789 @@
+---
+title: "Vita"
+draft: false
+layout: cv
+output: blogdown::html_page 
+---
+
+<div class='row'>
+
+<div class='col-md-3'>
+<nav id="toc" data-toggle="toc" class="sticky-top"></nav>
+</div>
+
+
+
+
+
+
+ 
+
+<div class='col-md-9'>
+
+```{css css, echo=FALSE}
+table td {
+  vertical-align: top !important;
+}
+
+table {
+  font-variant-numeric: tabular-nums;
+}
+
+.csl-entry {
+  padding-left:35px;
+  text-indent:-35px;
+}
+
+.csl-entry a i, .csl-entry a{
+  padding-left:0px;
+  text-indent:0px;
+}
+
+p img {
+  max-width:900px;
+}
+
+h1 {margin-top:20px; display:block}
+h2 {margin-top:15px}
+h3 {margin-top:10px}
+h4 {margin-top:5px}
+
+#curriculum-vitae h1 {
+font-size: 40pt
+}
+
+#education td {padding-top: 10px}
+
+#education tr:first-child td {padding-top: 0px}
+
+.smalldate{
+  font-size: 1rem
+}
+
+```
+
+```{r setup, include=FALSE}
+library(extrafont)
+loadfonts("win")
+loadfonts()
+library(tidyverse)
+knitr::opts_chunk$set(echo = F, cache = F, dev = "svg")
+options(knitr.kable.NA = "")
+# Set table column width
+# https://github.com/rstudio/bookdown/issues/122#issuecomment-221101375
+html_table_width <- function(kable_output, width, class = ""){
+  width_html <- paste0(
+    paste0('<col width="',
+           width,
+           '">'),
+    collapse = "\n")
+  sub("<table>",
+      paste0(paste0("<table class='", class, "'>"),
+             "\n",
+             width_html),
+      kable_output)
+}
+
+make_citation_button <- function(cites, cid, date) {
+  s <- ifelse(cites > 1, "s", "")
+ ifelse(is.na(cites) | cites == 0, 
+        "", 
+        glue::glue(
+          ' <a target="_blank" title="{cites} citation{s}"  href="https://scholar.google.com/scholar?as_ylo={date}&oi=bibs&hl=en&cites={cid}"><i class="ai ai-google-scholar"></i></a>')) 
+}
+
+paste_and <- function(words, 
+                      sep = ", ", 
+                      and = ", & ", 
+                      and2 = and) {
+   k <- length(words)
+   sp <- rep(sep, k)
+   sp[k] <- ""
+   if (k > 1) sp[k - 1] <- and
+   if (k == 2) sp[1] <- and2
+   paste0(words, sp, collapse = "")
+}
+
+make_authors <- function(authors) {
+  map_chr(authors, function(d) mutate(d, 
+                         given = str_extract_all(
+                           given, 
+                           "\\b[a-zA-Z]") %>% 
+                           map_chr(~paste0(.x, 
+                                           ".", 
+                                           collapse = " ")),
+                         author = paste0(family, ", ", given)) %>% 
+        pull(author) %>% 
+        paste_and())
+  
+}
+
+make_editors <- function(editors) {
+  map_chr(editors, function(d) {
+    s <- ifelse(nrow(d) > 1, "s", "")
+    mutate(d, 
+                         given = str_extract_all(
+                           given, 
+                           "\\b[a-zA-Z]") %>% 
+                           map_chr(~paste0(.x, 
+                                           ".", 
+                                           collapse = " ")),
+                         editors = paste0(given, " ", family)) %>% 
+        pull(editors) %>% 
+        paste_and() %>% 
+      paste0(., " (Ed", s, ".)")
+    }
+        )
+  
+}
+
+make_chairs <- function(d) {
+  
+    if (all(is.na(d))) return(NA_character_)
+    
+    s <- ifelse(nrow(d) > 1, "s", "")
+    
+    as_tibble(d) %>% 
+      mutate( 
+        given = str_extract_all(
+          given, 
+          "\\b[a-zA-Z]") %>% 
+          map_chr(~paste0(.x, 
+                          ".", 
+                          collapse = " ")),
+        editors = paste0(given, " ", family)) %>% 
+      pull(editors) %>% 
+      paste_and() %>% 
+      paste0(". In ", ., " (Chair", s, "), ")
+    
+}
+
+
+
+na2empty <- function(s, s_additional = s) {
+  ifelse(is.na(s) | s == "", "", s_additional)
+}
+
+na2emph <- function(s) {
+  ifelse(is.na(s) | s == "", "", paste0("<em>", s, "</em>"))
+}
+
+na2link <- function(s, href, prefix = "", suffix = ".") {
+  ifelse(is.na(href), 
+         na2empty(s), 
+         glue::glue('{prefix}<a target="_blank" href="{href}">{s}</a>{suffix}'))
+  }
+
+title_suffix <- function(s) {
+  period <- str_detect(s, "\\.$")
+  questionmark <- str_detect(s, "\\?$")
+  exclamationmark <- str_detect(s, "\\!$")
+  ifelse(period | questionmark | exclamationmark, "", ".")
+}
+```
+
+# [Curriculum Vitae]{.smallcaps}
+
+## W. Joel Schneider
+
+:::{.row}
+
+:::{.col-md-7}
+**Temple University**  
+College of Education & Human Development  
+Ritter Annex 215  
+Philadelphia, PA 19122-6091
+:::
+
+:::{.col-md-5}
+**Office**: (215) 204-8093  
+**Email**: [schneider\@temple.edu](mailto:W. Joel Schneider <schneider@temple.edu>?subject=Question%20from%20your%20website&body=Dear%20Dr.%20Schneider%2C%0D%0A "W. Joel Schneider<schneider@temple.edu>")  
+**Web**: [Faculty Profile](https://education.temple.edu/about/faculty-staff/w-joel-schneider-tuh42402){target="_blank"}  
+**Blog**: [AssessingPsyche](https://assessingpsyche.wordpress.com/){target="_blank"}
+:::
+
+:::
+
+# Education
+
+
+```{r education}
+tibble(
+              Year = c("1996–2003", "", "1989–1994"),
+         University = c("**Texas A&M University**","", 
+                       "**University of California, Berkeley**"),
+            Major = c("Ph.D. in Clinical Psychology [(2003)]{.smalldate}",
+                       "M.S. in Clinical Psychology [(1999)]{.smalldate}",
+                      "B.S. in Psychology [(1994)]{.smalldate}"),
+              Note = c("Dissertation: *The Transtheoretical Model of Change in Couples*",
+                       "Thesis: *The Moderating Influence of Perceived Containment on the Relation between Child Externalizing Behaviors and Parenting Practices*",
+                       "")
+) %>% 
+  unite(University, University, Major, Note, sep = "<br>") %>%
+  mutate(University = str_remove(University, "^<br>")) %>% 
+  knitr::kable(format = "html", align = "ll", escape = F, col.names = NULL) %>% 
+  html_table_width(width = c("20%", "80%"), class = "align-top w-100")
+
+
+```
+
+
+# Academic Positions 
+
+
+
+```{r positions}
+tibble::tribble(
+           ~Date,                          ~Location,                         ~Position,
+  "2017–",            "**Temple University**",             "Professor [(2021–)]{.smalldate}", 
+              NA,                  "Philadelphia PA",             "Associate Professor [(2017–2021)]{.smalldate}",
+     "2002–2017",    "**Illinois State University**",           "Professor [(2014–2017)]{.smalldate}",
+              NA,                        "Normal IL", "Associate Professor [(2010–2014)]{.smalldate}",
+              NA,                                 NA, "Assistant Professor [(2004–2010)]{.smalldate}",
+              NA,                                 NA,  "Full-time Lecturer [(2002–2004)]{.smalldate}",
+     "2001–2002",              "**Dutchess County**",               "Psychology Intern",
+              NA, "**Department of Mental Hygiene**",                                NA,
+              NA,                 "Poughkeepsie, NY",                                NA
+  ) %>% 
+  mutate(across(.fns = ~str_replace_all(.x, "–", "&NoBreak;&ndash;&NoBreak;"))) %>% 
+  knitr::kable(format = "html", align = "lll", escape = F, col.names = NULL) %>% 
+  html_table_width(width = c("20%", "40%", "40%"), class = "align-top w-100")
+
+
+```
+
+
+# Grant Support
+
+## Current Grant Support
+
+#. *Statistical Validation Analysis of the Functional Cattell Horn Carroll (F-CHC) Model with Measures of Intelligence* (PI), $15,000, Woodcock Institute Research Grant Award [(January 2021–July 2021)]{.smalldate}.
+#. *Virtual Charter School Performance Reviews and Support* (PI), with Christopher McGinley, Sarah Cordes, and Annemarie Hindman, $511,560, Pennsylvania Department of Education [(2020–2021)]{.smalldate}.
+#. *GeometryByExample: Developing an Effective Intervention for Varied Geometry Content and Learner Characteristics* (Co-PI), with Julie Booth (PI), Kelly McGinn, Christina Barbieri, & M. Suzanne Donovan, $1,396,715, US Department of Education R305A190126 [(July 2019–June 2022)]{.smalldate}.
+
+## Past Grant Support
+#. *The Roots and Fruits of Positive School Climate: A Multilevel Examination of School Climate’s Mediating Role in the Relations Among Student Risk Factors and Student Performance Outcomes* (Co-PI), with  Laura Pendergast (PI) and Armando Estrada, $3000, Pennsylvania Department of Education [(2018–2019)]{.smalldate}.
+#. *Development of the Compositator* (PI), $11,000, Woodcock-Muñoz Foundation (2008–2010)
+#. *Exploring the Impact of Cognitive Abilities on Behavior Problems* (PI), $2500, Illinois State University [(2005)]{.smalldate}
+
+```{r scholar, cache=TRUE}
+library(scholar)
+
+id <- "aojOxP4AAAAJ"
+l <- get_profile(id)
+d_pubs <- scholar::get_publications(id)
+j <- d_pubs  %>% 
+  filter(number != "") %>% 
+  filter(!(journal %in% c("Handbook of educational theories", 
+                          "Human Intelligence: An Introduction",
+                          "Scientific American",
+                          "Clinical handbook of couple therapy",
+                          "WJ IV clinical use and interpretation",
+                          "Best practices in school psychology V",
+                          "Institute for Applied Psychometrics (IAP)",
+                          "The Oxford Handbook of Child Psychological Assessment",
+                          "Handbook of educational theories"
+                          ))) %>% 
+  pull(journal) %>% 
+  unique 
+
+d_impact <- scholar::get_impactfactor(j) %>% 
+  filter(!is.na(Journal)) %>% 
+  mutate(linkJournal = str_to_lower(Journal))
+
+
+d_pubs_link <- d_pubs %>% 
+  mutate(linkJournal = str_to_lower(journal)) %>% 
+  left_join(d_impact %>% select(-Journal, -Cites), by = "linkJournal") %>% 
+  select(-linkJournal) %>% 
+  arrange(desc(year)) %>% 
+  as_tibble() %>% 
+  select(title, author, year, cites, ImpactFactor) %>% 
+  unique 
+
+
+ct <- get_citation_history(id) %>% 
+  mutate(cumulative_citations = cumsum(cites))
+
+
+
+```
+
+# Publications
+
+## Publication Indices
+
+* [Google Scholar Citations](https://scholar.google.com/citations?user=aojOxP4AAAAJ&hl=en): `r l$total_cites`
+* h-index: `r l$h_index`
+* i10-index: `r l$i10_index`
+
+```{r scholarplot, dev="svg", fig.height=7, fig.width=8, fig.cap="Google Scholar Citations of My Work", out.width="800px"}
+## Plot citation trend
+
+ggplot(ct, aes(year, cumulative_citations)) + 
+  geom_step(linetype = 1, color = "gray50") + 
+  geom_point(color = "gray20") +
+  geom_label(aes(label = paste0("+", cites)), 
+             hjust = 0.5, 
+             vjust = -0.5, 
+             label.size = 0, 
+             label.padding = unit(0,"pt"), 
+             family = "Rubik", 
+             size = 4.5, 
+             color = "gray30", 
+             fill = "white") +
+  # geom_text(aes(label = paste0("+", cites)), hjust = 0.5, vjust = -0.5, family = "Palatino Linotype", size = 4, color = "gray20") +
+  scale_x_continuous("Publication Year", minor_breaks = 2000:2021) +
+  scale_y_continuous("Cumulative Citation Count",expand = expansion(mult = c(0.02,0.052))) +
+  theme_minimal(base_size = 16, base_family = "Rubik") +
+  coord_cartesian(clip = 'off') +
+  theme(plot.title.position = "plot")
+
+```
+
+## Books
+
+```{r books, results='asis'}
+jsonlite::read_json("../data/My Books.json", simplifyVector = T) %>% 
+  as_tibble() %>% 
+  mutate(issued = flatten(issued) %>% as.integer(),
+         edition = ifelse(is.na(edition), "", paste0(" (",scales::ordinal(as.numeric(edition)), " ed.)"))) %>% 
+  unnest(author) %>% 
+  mutate(given = str_extract_all(given, "\\b[a-zA-Z]") %>% 
+           map_chr(~paste0(.x, ".", 
+                           collapse = " ")),
+         author = paste0(family, ", ", given)) %>% 
+  group_by(id) %>% 
+  summarise(author = knitr::combine_words(words = author, 
+                                          sep = ", ", 
+                                          and = " & "),
+            source = first(source),
+            title = first(title),
+            publisher = first(publisher),
+            URL = first(URL),
+            edition = first(edition),
+            year = first(issued),
+            note = first(note)
+            ) %>% 
+  mutate(pubid = str_remove(note, "pubid:")) %>% 
+  left_join(d_pubs %>% select(pubid, cites, cid), by = "pubid") %>% 
+  mutate(citations = make_citation_button(cites, cid, year)) %>% 
+  mutate(citation = glue::glue('<div class="csl-entry">{author} ({year}). <a href="{URL}"><em>{title}</em>{edition}</a>. {publisher}.{citations}</div>')) %>% 
+ arrange(-year, author) %>% 
+  pull(citation) %>% 
+  cat
+
+```
+
+## Journal Articles
+
+```{r articles, results='asis'}
+jsonlite::read_json("../data/My Articles.json", simplifyVector = T) %>% 
+  as_tibble() %>% 
+  rename(journal = `container-title`,
+         year = issued) %>% 
+  mutate(year = flatten(year) %>% as.integer(),
+         author = make_authors(author),
+         title = na2link(title, 
+                         href = paste0("https://doi.org/", DOI), 
+                         suffix = title_suffix(title)),
+         pubid = str_remove(note, "pubid:"),
+         issue = na2empty(issue, paste0("(", issue, ")")),
+         page = str_replace(page, "-", "&ndash;")) %>% 
+  left_join(d_pubs %>% select(pubid, cites, cid), by = "pubid") %>% 
+  mutate(citations = make_citation_button(cites, cid, year)) %>% 
+  mutate(citation = glue::glue('<div class="csl-entry">{author} ({year}). {title} <em>{journal}, {volume}</em>{issue}, {page}. {citations}</div>')) %>% 
+ arrange(-year, author) %>%  
+  pull(citation) %>% 
+  cat
+
+```
+
+
+
+## Chapters
+
+```{r chapters, results='asis'}
+
+
+jsonlite::read_json("../data/My Chapters.json", simplifyVector = T) %>% 
+  rename(book = `container-title`,
+         year = issued) %>% 
+  as_tibble() %>% 
+  mutate(year = flatten(year) %>% as.integer(),
+         author = make_authors(author),
+         editor = make_editors(editor),
+         pubid = str_remove(note, "pubid:"),
+         page = str_replace(page, "-", "&ndash;"),
+         edition = na2empty(edition, 
+                            paste0(
+                              scales::ordinal(as.numeric(edition)),
+                              " ed., ")),
+         volume = na2empty(volume, paste0("Vol. ", volume, ", ")),
+         title = na2link(title, 
+                         URL, 
+                         suffix = title_suffix(title))) %>%  
+  left_join(d_pubs %>% select(pubid, cites, cid), by = "pubid") %>% 
+  mutate(citations = make_citation_button(cites, cid, year)) %>% 
+  mutate(citation = glue::glue(
+    '<div class="csl-entry">{author} ({year}). {title} In {editor} <em>{book}</em> ({volume}{edition}pp. {page}). {publisher}. {citations} </div>')) %>% 
+ arrange(-year, author) %>% 
+  pull(citation) %>% 
+  cat
+
+```
+
+
+## Test Reviews
+
+```{r testreviews, results='asis'}
+
+
+jsonlite::read_json("../data/My Testreviews.json", simplifyVector = T) %>% 
+  rename(book = `container-title`,
+         year = issued) %>% 
+  as_tibble() %>% 
+  mutate(year = flatten(year) %>% as.integer(),
+         author = make_authors(author),
+         editor = make_editors(editor),
+         citation = glue::glue(
+    '<div class="csl-entry">{author} ({year}). {title}. In {editor} <em>{book}</em>. {publisher}.</div>')) %>% 
+ arrange(-year, author) %>% 
+  pull(citation) %>% 
+  cat
+```
+
+
+## Scholarly Reports
+
+```{r reports, results='asis'}
+
+
+jsonlite::read_json("../data/My Reports.json", simplifyVector = T) %>% 
+    as_tibble() %>% 
+  rename(year = issued) %>% 
+  mutate(year = flatten(year) %>% as.integer(),
+         author = make_authors(author),
+         pubid = str_remove(note, "pubid:"),
+         publisher = paste0(na2empty(publisher), na2empty(`collection-title`), na2empty(`container-title`)),
+         title = map2(title, URL, na2link)) %>% 
+  left_join(d_pubs %>% select(pubid, cites, cid), by = "pubid") %>% 
+  mutate(citations = make_citation_button(cites, cid, year),
+         citation = glue::glue(
+    '<div class="csl-entry">{author} ({year}). <em>{title}</em> {publisher}. {citations}</div>')) %>% 
+ arrange(-year, author) %>% 
+  pull(citation) %>% 
+  paste0(collapse = "\n") %>% 
+  cat
+```
+
+## Software
+
+```{r software, results='asis'}
+
+
+jsonlite::read_json("../data/My Software.json", simplifyVector = T) %>% 
+    as_tibble() %>% 
+  rename(year = issued) %>% 
+  mutate(year = flatten(year) %>% as.integer(),
+         author = make_authors(author),
+         pubid = str_remove(note, "pubid:"),
+         publisher = na2empty(publisher, paste0(publisher, ".")),
+         title = paste0(na2link(title, URL), ifelse(is.na(URL), ".", "")),
+         archive = na2link(archive, archive, "Retrieved from ", "")) %>% 
+  left_join(d_pubs %>% select(pubid, cites, cid), by = "pubid") %>% 
+  mutate(citations = make_citation_button(cites, cid, year),
+         citation = glue::glue(
+    '<div class="csl-entry">{author} ({year}). <em>{title}</em>  &#091;Software&#093; {publisher} {archive} {citations}</div>')) %>% 
+ arrange(-year, author) %>% 
+  pull(citation) %>% 
+  paste0(collapse = "\n") %>% 
+  cat
+```
+
+# Presentations
+
+## Lectures
+
+```{r lectures, results='asis'}
+
+list2date <- function(l) {
+  year <- l[[1]]
+  month <- l[[2]]
+  day <- l[[3]]
+  
+  date <- lubridate::as_date(glue::glue("{year}-{month}-{day}"))
+  
+  format(date, format = "%Y, %B %e")
+  
+}
+
+
+jsonlite::read_json("../data/My Talks.json", simplifyVector = T) %>% 
+    as_tibble() %>% 
+  mutate(date = flatten(issued) %>% map_chr(list2date),
+         year = flatten(issued) %>% map(1) %>% as.integer(),
+         month = flatten(issued) %>% map(2) %>% as.integer(),
+         day = flatten(issued) %>% map(3) %>% as.integer(),
+         author = make_authors(author),
+         chair = map_chr(`container-author`, make_chairs) %>% na2empty(),
+         title = na2link(title, URL,suffix = title_suffix(title)),
+         URL = na2empty(URL),
+         `container-title` = na2emph(`container-title`)
+         ) %>% 
+  mutate(title = ifelse(`container-title` == "", paste0("<em>", title, "</em>"), title)
+         ) %>% 
+  mutate(title = paste0(title, chair, `container-title`) %>% str_replace_all("\\.\\.", ".")) %>% 
+  mutate(citation = glue::glue(
+    '<div class="csl-entry">{author} ({date}). {title} [{genre}]. {event}, {`event-place`}.   {URL}</div>')) %>% 
+ arrange(-year, -month, -day, author) %>% 
+  pull(citation) %>% 
+  paste0(collapse = "\n") %>% 
+  cat
+
+```
+
+## Posters and Papers
+
+```{r posters, results='asis'}
+jsonlite::read_json("../data/My Posters.json", simplifyVector = T) %>% 
+    as_tibble() %>% 
+  mutate(date = flatten(issued) %>% map_chr(list2date),
+         year = flatten(issued) %>% map(1) %>% as.integer(),
+         month = flatten(issued) %>% map(2) %>% as.integer(),
+         day = flatten(issued) %>% map(3) %>% as.integer(),
+         author = make_authors(author),
+         title = na2link(title, URL, suffix = ""),
+         URL = na2empty(URL)
+         ) %>% 
+  mutate(citation = glue::glue(
+    '<div class="csl-entry">{author} ({date}). <em>{title}</em> [{genre}]. {event}, {`event-place`}.   {URL}</div>')) %>% 
+ arrange(-year, -month, -day, author) %>% 
+  pull(citation) %>% 
+  paste0(collapse = "\n") %>% 
+  cat
+```
+
+
+# Teaching
+
+## Courses
+
+### Temple University
+
+*	CPSY 5519—Group Counseling [(Spring 2018–2019)]{.smalldate}
+*	CPSY 5694—Introduction to Assessment [(Fall 2017–2019)]{.smalldate}
+*	EDUC 5101—Critical Understanding of Social Science Research [(Fall 2018)]{.smalldate}
+*	EDUC 5325—Introduction to Statistics and Research [(Fall 2017)]{.smalldate}
+*	EPSY 5529—Tests and Measurements [(Spring 2019–2020)]{.smalldate}
+*	EPSY 8825—Advanced Data Analysis [(Spring 2020)]{.smalldate}
+*	SPSY 9687/8—Seminar in School Psychology/Psychoeducational Clinic [(Fall 2019, Spring 2020–2021)]{.smalldate}
+
+
+### Illinois State University
+
+*	PSY 110—Explaining Human Behavior/Fundamentals of Psychology [(Fall 2002–2006, Spring 2003–2004, 2006–2007)]{.smalldate}
+*	PSY 138—Social Science Reasoning Using Statistics/Reasoning in Psychology Using Statistics [(Spring 2004, 2008–2012, 2014; Fall 2007–2014, 2016)]{.smalldate}
+*	PSY 340—Statistics for the Social Sciences [(Spring 2005)]{.smalldate}
+*	PSY 432—Psychodiagnostics I: Cognitive Assessment/ Theory and Practice of Cognitive Assessment [(Fall 2004–2016)]{.smalldate}
+*	PSY 436—Clinical/Counseling Practicum [(Spring 2004)]{.smalldate}
+*	PSY 442—Test Theory [(Spring 2015, 2017)]{.smalldate}
+*	PSY 443—Regression Analysis [(Spring 2016)]{.smalldate}
+*	PSY 444—Multivariate Analysis (Fall 2015){.smalldate}
+*	PSY 464—Theories and Techniques of Counseling: Adults [(Spring 2005–2012, 2014–2016)]{.smalldate}
+*	PSY 480—Advanced Practicum in Dialectical Behavior Therapy Skills [(Fall 2015–2017)]{.smalldate}
+*	PSY 480.31—Practicum in Dialectical Behavior Therapy Skills Training [(Fall 2014, Spring 2105–2017)]{.smalldate}
+*	PSY 480.33—Seminar in Psychology: Supervision of a Dialectical Behavior Therapy Group [(Fall 2014, Spring 2105, 2017)]{.smalldate}
+
+
+## Mentoring
+
+### Doctoral Dissertation Chair
+
+#### Temple University
+
+*	Justin Harper
+*	Stephanie Iaccarino (co-chair)
+
+#### Illinois State University
+
+*	C. Lee Affrunti
+*	Daniel L. Gadke (co-chair)
+*	Jonathan W. Stagg
+
+### Doctoral Dissertation Committee Member
+
+#### Temple University
+
+*	Linda Ruan
+*	Kaiyla Darmer
+*	Denae Sisco
+*	Kathryn DeVries
+*	Tera Gibbs
+*	Mariah Davis
+
+#### Illinois State University
+
+*	Anna C. Bodner
+*	Rachelle Cantin
+*	Silas Dick
+*	Jennifer Engelland-Schultz
+*	Katherine A. Gioia
+*	Trisha Mann
+*	Mandi Martinez-Dick
+*	Thomas Mulderink
+*	Sarah Reck
+*	Alyssa A. Sondalle
+*	Jennifer Wallace
+
+
+### Master's Thesis Chair
+
+
+
+#### Illinois State University
+
+*	Meera Afzal
+*	Rachelle Bauer
+*	Kiera Dymit
+*	Feng Ji
+*	David Kasson
+*	Katrin Klieme
+*	Sunthud Pornprasertmanit
+*	Zachary Roman
+*	Kristina Taylor
+*	Robin Van Herrmann
+*	Melissa Zygmun
+
+### Master's Thesis Committee Member
+
+#### Illinois State University
+
+*	Drew Abney
+*	Katy Adler
+*	Leah Barr
+*	Sara Byczek
+*	James Clinton
+*	Amanda Fisher
+*	Danielle Freund
+*	Jamie Hansen
+*	Melanie Hewett
+*	Rebecca Hoerr
+*	Poonam Joshi
+*	Hayley Love
+*	Nicole Moore
+*	Thomas Mulderink
+*	Yin Ying Ong
+*	Arusha Sethi
+*	Anges Strojewska
+*	Kevin Wallpe
+*	Ryan Willard
+
+### Honor's Thesis Chair
+
+#### Illinois State University
+
+*	Donnie Johnson
+*	Joshua Rohlfs
+*	Lauren Swanson
+*	Ellen Wing
+
+
+### Independent Studies
+
+#### Temple University
+
+*	Justin Harper (EDUC 8404—Quantitative Analysis, Part I)
+*	Michael Matta (visiting scholar from University of Milan—Bicocca)
+
+#### Illinois State University
+
+*	Zachary Richardson (PSY 400—Creating an R package for APA Tables)
+
+# Service
+
+
+```{r, results="asis", message=FALSE}
+
+make_service <- function(L2, L3, data) {
+  if (L2 != "") cat(paste0("\n\n## ", L2, "\n\n"))
+  if (!is.na(L3)) cat(paste0("\n\n### ", L3, "\n\n"))
+  
+  data %>% 
+  mutate(across(.fns = ~str_replace_all(.x, "–", "&NoBreak;&ndash;&NoBreak;"))) %>% 
+    mutate(Date = str_replace_all(Date, "-", "&ndash;")) %>% 
+  knitr::kable(format = "html", align = "lll", escape = F, col.names = NULL) %>% 
+  html_table_width(width = c("20%", "80%"), class = "align-top w-100") %>% 
+    cat()
+  
+  
+}
+
+
+readr::read_csv("../csv/service.csv") %>% 
+  group_by(L2, L3) %>% 
+  nest() %>% 
+  ungroup %>% 
+  mutate(L2 = ifelse(L2 == lag(L2,default = ""), "", L2)) %>% 
+  pwalk(make_service)
+
+
+
+```
+
+
+## Editorial Positions
+
+```{r}
+tibble::tribble(
+           ~Date,                                  ~Journal,             ~Position,
+  "2019–2021", "*Journal of Psychoeducational Assessment*",    "Associate Editor",
+          "2015",            "*Journal of School Psychology*", "Guest Action Editor"
+  ) %>% 
+  mutate(across(.fns = ~str_replace_all(.x, "–", "&NoBreak;&ndash;&NoBreak;"))) %>% 
+  knitr::kable(format = "html", align = "lll", escape = F, col.names = NULL) %>% 
+  html_table_width(width = c("20%", "45%", "35%"), class = "align-top w-100")
+
+
+```
+
+
+## Editorial Boards
+
+```{r editorial}
+tibble::tribble(
+             ~Date,                                  ~Journal,             ~Position,
+  "2018–",                  "*Journal of Intelligence*",      "Editorial Board",
+   "2011–",            "*Journal of School Psychology*",     "Editorial Board",
+   "2010–", "*Journal of Psychoeducational Assessment*",     "Editorial Board",
+   "2017–",       "*Archives of Scientific Psychology*",   "Consulting Editor",
+      "2009–2018",                "*Psychological Assessment*",   "Consulting Editor",
+      "1997–2000",             "*Clinician's Research Digest*", "Editorial Associate"
+  ) %>% 
+  mutate(across(.fns = ~str_replace_all(.x, "–", "&NoBreak;&ndash;&NoBreak;"))) %>% 
+  knitr::kable(format = "html", align = "lll", escape = F, col.names = NULL) %>% 
+  html_table_width(width = c("20%", "45%", "35%"), class = "align-top w-100")
+
+```
+
+
+## Ad Hoc Reviewing
+
+*	*Applied Neuropsychology*
+*	*European Journal of Psychological Assessment*
+*	*Frontiers in Human Neuroscience*
+*	*Journal of Family Psychology*
+*	*Journal of Psychoeducational Assessment*
+*	*NASP Communiqué*
+*	*Psychological Assessment*
+*	*Psychology in the Schools*
+
+## Professional Memberships
+
+*	Member, American Psychological Association
+*	Member, National Association of School Psychologists
+
+
+</div>
+</div>
+

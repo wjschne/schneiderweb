@@ -2,11 +2,12 @@
   <h2>{{ .Title }}</h2>
 
   {{ .Content }}
-  
-<ul>
+
+<ul class="contactlist list-unstyled">
   {{ range .Site.Data.socialmedia.accounts }}
-    <li><a href="{{ .url }}">{{ .name }}</a></li>
+    <li><a href="{{ .url }}"><i class="{{ .icon }}" title="{{ .name }}"> </i> {{ .name }}</a></li>
   {{ end }}
 </ul>
+
 
 {{ end }}

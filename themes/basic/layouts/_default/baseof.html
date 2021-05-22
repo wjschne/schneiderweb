@@ -1,14 +1,25 @@
 <!DOCTYPE html>
 <html>
     {{- partial "head.html" . -}}
-<body>
+<body data-spy="scroll" data-target="#toc">
     <div class="container">
-    {{- partial "header.html" . -}}
-    {{- partial "nav.html" . -}}
-<div id="content">
-    {{- block "main" . }}{{- end }}
-</div>
-    {{- partial "footer.html" . -}}
+        {{- partial "header.html" . -}}
+
+        <div id="content">
+            {{- block "main" . }}{{- end }}
+        </div>
+
+        {{- partial "footer.html" . -}}
     </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    {{ partial "footer_highlightjs" . }}
+    {{ partial "footer_mathjax" . }}
+    {{ template "_internal/google_analytics.html" . }}
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+	<script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script>
 </body>
 </html>

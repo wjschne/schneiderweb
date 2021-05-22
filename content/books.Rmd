@@ -1,0 +1,7 @@
+---
+output: html_fragment
+bibliography: ../data/My Posters.json
+nocite: "@*"
+csl: apa-cv.csl
+---
+

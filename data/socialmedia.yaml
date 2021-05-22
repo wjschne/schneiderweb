@@ -1,7 +1,34 @@
 accounts:
-  - name: schneider@temple.edu
-    url: "mailto: schneider@temple.edu"
+  - name: Email
+    url: "mailto:W. Joel Schneider <schneider@temple.edu>?subject=Question%20from%20your%20website&body=Dear%20Dr.%20Schneider%2C%0D%0A"
+    icon: far fa-envelope
+  - name: Curriculum Vitae
+    url: "/media/schneider-vita.pdf"
+    icon: ai ai-cv
+  - name: ResearchGate
+    url: "https://www.researchgate.net/profile/W-Schneider-3"
+    icon: ai ai-researchgate
+  - name: Google Scholar
+    url: "https://scholar.google.com/citations?hl=en&pli=1&user=aojOxP4AAAAJ"
+    icon: ai ai-google-scholar
+  - name: Orchid
+    url: "https://orcid.org/0000-0002-8393-5316"
+    icon: ai ai-orcid
+  - name: Open Science Framework
+    url: "https://osf.io/whabf/"
+    icon: ai ai-osf
+  - name: Zotero
+    url: "https://www.zotero.org/wjschne"
+    icon: ai ai-zotero
+  - name: GitHub
+    url: "https://github.com/wjschne"
+    icon: fab fa-github
+  - name: stackoverflow
+    url: "https://stackoverflow.com/users/4513316/joel-schneider"
+    icon: ai ai-stackoverflow
   - name: Twitter
     url: "https://twitter.com/WJoelSchneider"
-  - name: Github
-    url: "https://github.com/wjschne"
+    icon: fab fa-twitter
+  - name: YouTube
+    url: "https://www.youtube.com/channel/UCFTUraTjxq743KfH-5gWrWg"
+    icon: fab fa-youtube

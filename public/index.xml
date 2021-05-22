@@ -6,7 +6,34 @@
     <description>Recent content on W. Joel Schneider</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 09 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 10 Apr 2021 23:46:55 -0400</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Opensource</title>
+      <link>/opensource/</link>
+      <pubDate>Sun, 11 Apr 2021 01:06:17 -0400</pubDate>
+      
+      <guid>/opensource/</guid>
+      <description>My GitHub Repositories </description>
+    </item>
+    
+    <item>
+      <title>Report Writing</title>
+      <link>/presentations/reportwriting/</link>
+      <pubDate>Sat, 10 Apr 2021 23:46:55 -0400</pubDate>
+      
+      <guid>/presentations/reportwriting/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CHC Theory</title>
+      <link>/presentations/chctheory/</link>
+      <pubDate>Sat, 10 Apr 2021 23:44:33 -0400</pubDate>
+      
+      <guid>/presentations/chctheory/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Contact</title>
       <link>/contact/</link>
@@ -81,7 +108,7 @@ summary(cars)## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 2
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/projects/individualpsychometrics/</guid>
-      <description>Individual Psychometrics: An Assessment Toolkit With Applications in R</description>
+      <description>Psychometric tools for psychological assessment</description>
     </item>
     
     <item>
@@ -90,7 +117,7 @@ summary(cars)## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 2
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/projects/spiro/</guid>
-      <description>Making digital spirographs is fun! I made an R package that takes spirographs to the next level: spiro</description>
+      <description>An R package for making digital spirographs</description>
     </item>
     
   </channel>

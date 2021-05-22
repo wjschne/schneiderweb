@@ -2,6 +2,22 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>/opensource/</loc>
+    <lastmod>2021-04-11T01:06:17-04:00</lastmod>
+  </url><url>
+    <loc>/</loc>
+    <lastmod>2021-04-10T23:46:55-04:00</lastmod>
+    <priority>0</priority>
+  </url><url>
+    <loc>/presentations/</loc>
+    <lastmod>2021-04-10T23:46:55-04:00</lastmod>
+  </url><url>
+    <loc>/presentations/reportwriting/</loc>
+    <lastmod>2021-04-10T23:46:55-04:00</lastmod>
+  </url><url>
+    <loc>/presentations/chctheory/</loc>
+    <lastmod>2021-04-10T23:44:33-04:00</lastmod>
+  </url><url>
     <loc>/contact/</loc>
     <lastmod>2021-04-10T21:47:49-04:00</lastmod>
   </url><url>
@@ -10,10 +26,6 @@
   </url><url>
     <loc>/about/</loc>
     <lastmod>2021-04-09T21:48:51-07:00</lastmod>
-  </url><url>
-    <loc>/</loc>
-    <lastmod>2021-04-09T00:00:00+00:00</lastmod>
-    <priority>0</priority>
   </url><url>
     <loc>/2021/04/09/first-post/</loc>
     <lastmod>2021-04-09T00:00:00+00:00</lastmod>

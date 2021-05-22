@@ -1,0 +1,65 @@
+fromthegroundup:
+  - title: Measurement Scales and variables
+    summary: Nominal, Ordinal, Interval, and Ratio scales
+    id: YyAwRGP2TZk
+  - title: Frequency Distributions
+    summary: How to visualize which values are most frequent in a distribution
+    id: avI5ggV71nk
+  - title: Probability Density Functions
+    summary: Functions that tell us which values are more likely to occur
+    id: FfkGU7yx5nc
+  - title: Expected Value and the Meaning of the Mean
+    summary: An introduction to expected value and how it is related to the concept of the mean of a variable.
+    id: gwYhxD8QODw
+  - title: Expected Value and Variance
+    summary: How variance is calculated
+    id: iDc5VV3gThc
+  - title: The Normal Distribution and the Central Limit Theorem
+    summary: Sum of the Reasons Variables Are Normally Normal
+    id: ky68Xv3DiWI
+  - title: "Skewness: Lopsided variability"
+    summary: An introduction to skewness and its relationship to variability.
+    id: esvPs6cml6w
+  - title: Kurtosis (Beyond Peakedness)
+    summary: An introduction to kurtosis and how it is not just a measure of peakedness.
+    id: sei6zqdSgVw
+  - title: Standard Scores (and Why We Need Them)
+    summary: An introduction to z-scores, stanines, stens, scaled scores, T scores, and index scores
+    id: mDB9V-DtYz8
+  - title: Covariance
+    summary: Covariance is rarely useful by itself but is indispensable for many statistics.
+    id: oN5Z8eddmek
+assessmentvids:
+  - title: Emotional Intelligence and CHC Theory
+    summary: How might emotional intelligence relate to psychometric models of intelligence?
+    id: sHcvIaGL8o4
+  - title: Misunderstanding Regression to the Mean
+    summary: What regression to the mean is and how it is often misunderstood. Examples are provided as to how it is applied to IQ and the death penalty.
+    id: aLv5cerjV0c
+  - title: Taking latent variable models seriously
+    summary: Applying latent score estimates to individuals
+    id: ZlC-HV0Z87A
+  - title: Specific cognitive processing weaknesses are rarely full explanations for academic deficits
+    summary: In which I confess to having had a longstanding misunderstanding about diagnosing learning disorders.
+    id: 8fjUg5S_XKI
+  - title: Two kinds of cognitive ability hierarchies
+    summary: Some latent variables represent "hierarchical abstractions."
+    id: WZuAaCJHw9w
+  - title: A Taxonomy of Influences on Ability Tests
+    summary: Some influences are test-specific whereas others are shared across tests. Some influences are transient whereas others are stable. Some influences are relevant to the construct of interest whereas others are irrelevant.
+    id: -20l-IgSV9c
+  - title: "Within-composite differences: Why measures of the same ability differ?"
+    summary: There are a number of lesser-known reasons that two tests that are intended to measure the same ability might differ substantially.
+    id: Ta7oTJ5ukyc
+  - title: "Within-composite differences: Do large subtest score differences invalidate composite scores?"
+    summary: It is often asserted that composite scores should not be interpreted when the scores that  make up that composite are discrepant. I show here why this is not typically true, depending on what the composite score is used for.
+    id: lKygHgVGSnk
+  - title: Writing Assessment Reports People Will Read, Understand, and Remember
+    summary: "My appearance on the <a target='blank' href='https://schoolpsychedpodcast.wordpress.com/'>School Psyched Podcast</a> on October 20, 2019"
+    id: SPBpFnHSrJA
+audiopresentations:
+  - title: The evolution of cognitive assessment with Dr. W. Joel Schneider
+    id: thetestingpsychologist
+    summary: "My appearance on the <a target='_blank' href='https://www.thetestingpsychologist.com/'>Testing Psychologist Podcast</a> on March 29, 2021"
+    link: "https://www.thetestingpsychologist.com/197-evolution-of-cognitive-assessment-w-dr-w-joel-schneider/"
+    embed: "https://www.thetestingpsychologist.com/?powerpress_embed=2349-podcast&amp;powerpress_player=mediaelement-audio"

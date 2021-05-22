@@ -1,7 +1,6 @@
 ---
 title: "Projects"
 draft: false
-description: A list of projects I am working on
+weight: 3
 ---
  	
-Some projects I am working on:
