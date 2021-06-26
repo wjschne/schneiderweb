@@ -8,11 +8,5 @@ I grew up in Southern California (1970--1990) and lived in C&oacute;rdoba, Argen
 
 
 
-Although I have diverse interests, my primary focus is trying to understand and improve the validity of psychological assessment practices. I co-wrote a book on assessment report reporting in which we stress the importance of writing accessible reports.
-
-
-
-[{{< figure src="/images/EssentialsOfAssessmentReportWriting.jpg" width="300px" >}}](https://www.wiley.com/en-us/Essentials+of+Assessment+Report+Writing%2C+2nd+Edition-p-9781119218753)
-
-I [teach courses](/courses) in assessment, counseling, statistics, and research methods.
+I [teach courses](/courses) in assessment, counseling, statistics, and research methods. Although I have diverse interests, my primary focus is trying to understand and improve the validity of psychological assessment practices. I have I co-wrote a book on assessment report reporting in which we stress the importance of writing accessible reports.
 
