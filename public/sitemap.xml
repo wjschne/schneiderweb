@@ -2,68 +2,79 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/opensource/</loc>
-    <lastmod>2021-04-11T01:06:17-04:00</lastmod>
+    <loc>/projects/books/individual-psychometrics/individualpsychometrics/</loc>
+  </url><url>
+    <loc>/posts/</loc>
+    <lastmod>2021-05-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/projects/</loc>
+    <lastmod>2021-04-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/courses/</loc>
+    <lastmod>2021-04-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/posts/concatenating-vectors-unless-a-vector-is-empty/</loc>
+    <lastmod>2021-05-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/</loc>
-    <lastmod>2021-04-10T23:46:55-04:00</lastmod>
-    <priority>0</priority>
+    <lastmod>2021-05-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/presentations/</loc>
-    <lastmod>2021-04-10T23:46:55-04:00</lastmod>
+    <loc>/tags/r/</loc>
+    <lastmod>2021-05-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/presentations/reportwriting/</loc>
-    <lastmod>2021-04-10T23:46:55-04:00</lastmod>
+    <loc>/tags/</loc>
+    <lastmod>2021-05-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/presentations/chctheory/</loc>
-    <lastmod>2021-04-10T23:44:33-04:00</lastmod>
+    <loc>/myprojects/book/</loc>
+    <lastmod>2021-04-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/projects/books/essentials-of-assessment-report-writing-2nd-edition/</loc>
+    <lastmod>2021-04-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/myprojects/</loc>
+    <lastmod>2021-04-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/projects/books/psychological-testing-and-assessment-10th-edition/</loc>
+    <lastmod>2021-04-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/projects/packages/ggnormalviolin/</loc>
+    <lastmod>2021-04-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/package/</loc>
+    <lastmod>2021-04-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/myprojects/package/</loc>
+    <lastmod>2021-04-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/categories/</loc>
+    <lastmod>2021-04-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/categories/r-package/</loc>
+    <lastmod>2021-04-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/projects/packages/simstandard/</loc>
+    <lastmod>2021-04-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/opensource/</loc>
+    <lastmod>2021-04-11T01:06:17-04:00</lastmod>
   </url><url>
     <loc>/contact/</loc>
     <lastmod>2021-04-10T21:47:49-04:00</lastmod>
   </url><url>
-    <loc>/resume/</loc>
-    <lastmod>2021-04-10T21:46:19-04:00</lastmod>
+    <loc>/articles/</loc>
   </url><url>
-    <loc>/about/</loc>
-    <lastmod>2021-04-09T21:48:51-07:00</lastmod>
+    <loc>/books/</loc>
   </url><url>
-    <loc>/2021/04/09/first-post/</loc>
-    <lastmod>2021-04-09T00:00:00+00:00</lastmod>
+    <loc>/chapters/</loc>
   </url><url>
-    <loc>/post/</loc>
-    <lastmod>2021-04-09T00:00:00+00:00</lastmod>
+    <loc>/posters/</loc>
   </url><url>
-    <loc>/categories/</loc>
-    <lastmod>2020-12-01T21:13:14-05:00</lastmod>
+    <loc>/presentations/</loc>
   </url><url>
-    <loc>/2020/12/01/hello-r-markdown/</loc>
-    <lastmod>2020-12-01T21:13:14-05:00</lastmod>
+    <loc>/projects/packages/spiro/spiro/</loc>
   </url><url>
-    <loc>/tags/plot/</loc>
-    <lastmod>2020-12-01T21:13:14-05:00</lastmod>
+    <loc>/projects/packages/unusualprofile/unusualprofile/</loc>
   </url><url>
-    <loc>/categories/r/</loc>
-    <lastmod>2020-12-01T21:13:14-05:00</lastmod>
-  </url><url>
-    <loc>/tags/r-markdown/</loc>
-    <lastmod>2020-12-01T21:13:14-05:00</lastmod>
-  </url><url>
-    <loc>/tags/regression/</loc>
-    <lastmod>2020-12-01T21:13:14-05:00</lastmod>
-  </url><url>
-    <loc>/tags/</loc>
-    <lastmod>2020-12-01T21:13:14-05:00</lastmod>
-  </url><url>
-    <loc>/2016/12/30/a-plain-markdown-post/</loc>
-    <lastmod>2016-12-30T21:49:57-07:00</lastmod>
-  </url><url>
-    <loc>/2015/01/01/lorem-ipsum/</loc>
-    <lastmod>2015-01-01T13:09:13-06:00</lastmod>
-  </url><url>
-    <loc>/projects/individualpsychometrics/</loc>
-  </url><url>
-    <loc>/projects/</loc>
-  </url><url>
-    <loc>/projects/spiro/</loc>
+    <loc>/vita/</loc>
   </url>
 </urlset>

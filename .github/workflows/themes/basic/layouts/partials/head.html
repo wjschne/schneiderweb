@@ -1,0 +1,44 @@
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>
+ 	{{- if .Page.IsHome -}}
+  {{ .Site.Title }}
+	{{- else -}}
+  {{ .Title }} – {{ .Site.Title }}
+ 	{{- end -}}
+  </title>
+  <meta name="author" content="{{ .Site.Params.author }}">
+  <meta name="description" content="
+ 	  {{- with .Page.Description -}}
+ 	    {{ . }}
+ 	  {{- else -}}
+ 	    {{ .Site.Params.description }}
+ 	  {{- end -}}">
+ 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/all.min.css"/>
+  <link rel="stylesheet" href="/css/academicons.min.css"/>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css">
+  <link rel="stylesheet" href="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.css" />
+    <link rel="stylesheet" href="{{ "css/main.css" | relURL }}">
+    <link rel="stylesheet" href="{{ "css/fonts.css" | relURL }}">
+    
+{{ range .AlternativeOutputFormats -}}
+ {{- $link := `<link rel="%s" type="%s" href="%s" title="%s">` -}}
+ {{- $title := printf "%s - %s" $.Page.Title $.Site.Title -}}
+
+ {{- if $.Page.IsHome -}}
+   {{ $title = $.Site.Title }}
+ {{- end -}}
+
+ {{ printf $link .Rel .MediaType.Type .Permalink $title | safeHTML }}
+{{- end }}
+{{ if .Keywords }}
+<meta property="keywords" content ="{{ delimit .Keywords ", " }}">
+{{ end }}
+
+{{ with .OutputFormats.Get "RSS" }}
+<link href="{{ .RelPermalink }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}" />
+{{ end }}
+{{ partial "head_highlightjs" . }}
+</head>

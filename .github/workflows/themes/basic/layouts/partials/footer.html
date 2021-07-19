@@ -1,0 +1,24 @@
+
+
+<footer>
+
+
+  <nav class="nav navbar-expand-md bg-dark navbar-dark my-1">
+  <ul class="navbar-nav">
+    {{ range .Site.Data.socialmedia.accounts }}
+    <li class="nav-item">
+      <a href="{{ .url }}" class="nav-link" target="_blank">
+        <i class="{{ .icon }}" title="{{ .name }}"> </i> 
+        <span class="d-inline d-md-none">{{ .name }}</span>
+      </a>
+    </li>
+    {{ end }}  
+  </ul>  
+</nav>
+
+  <p class="text-end">
+      <i class="fas fa-copyright"> </i> {{now.Format "2006"}}
+</p>
+</footer>
+
+

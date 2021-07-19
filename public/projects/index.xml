@@ -5,23 +5,69 @@
     <link>/projects/</link>
     <description>Recent content in Projects on W. Joel Schneider</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="/projects/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <lastBuildDate>Mon, 19 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="/projects/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Individual Psychometrics</title>
-      <link>/projects/individualpsychometrics/</link>
+      <link>/projects/books/individual-psychometrics/individualpsychometrics/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/projects/individualpsychometrics/</guid>
-      <description>Psychometric tools for psychological assessment</description>
+      <guid>/projects/books/individual-psychometrics/individualpsychometrics/</guid>
+      <description>A free online book about psychometric tools for psychological assessment. A work in progress.</description>
     </item>
     
     <item>
-      <title>Spiro</title>
-      <link>/projects/spiro/</link>
+      <title>Essentials of Assessment Report Writing, 2nd Edition</title>
+      <link>/projects/books/essentials-of-assessment-report-writing-2nd-edition/</link>
+      <pubDate>Mon, 19 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/books/essentials-of-assessment-report-writing-2nd-edition/</guid>
+      <description>A book about making reader-friendly assessment reports that instill hope and promote change.</description>
+    </item>
+    
+    <item>
+      <title>Psychological Testing and Assessment, 10th Edition</title>
+      <link>/projects/books/psychological-testing-and-assessment-10th-edition/</link>
+      <pubDate>Mon, 19 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/books/psychological-testing-and-assessment-10th-edition/</guid>
+      <description>An introduction to tests and measurements</description>
+    </item>
+    
+    <item>
+      <title>ggnormalviolin</title>
+      <link>/projects/packages/ggnormalviolin/</link>
+      <pubDate>Sun, 18 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/packages/ggnormalviolin/</guid>
+      <description>A ggplot2 extension package for creating normal violin plots</description>
+    </item>
+    
+    <item>
+      <title>simstandard</title>
+      <link>/projects/packages/simstandard/</link>
+      <pubDate>Sat, 17 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/packages/simstandard/</guid>
+      <description>R package for simulating data using standardized coefficients</description>
+    </item>
+    
+    <item>
+      <title>spiro</title>
+      <link>/projects/packages/spiro/spiro/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/projects/spiro/</guid>
+      <guid>/projects/packages/spiro/spiro/</guid>
       <description>An R package for making digital spirographs</description>
+    </item>
+    
+    <item>
+      <title>unusualprofile</title>
+      <link>/projects/packages/unusualprofile/unusualprofile/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/packages/unusualprofile/unusualprofile/</guid>
+      <description>An R package for detecting unusual scores in a test profile.</description>
     </item>
     
   </channel>

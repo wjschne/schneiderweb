@@ -1,12 +1,66 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>W. Joel Schneider</title>
+    <title>Home on W. Joel Schneider</title>
     <link>/</link>
-    <description>Recent content on W. Joel Schneider</description>
+    <description>Recent content in Home on W. Joel Schneider</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 10 Apr 2021 23:46:55 -0400</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 13 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Individual Psychometrics</title>
+      <link>/projects/books/individual-psychometrics/individualpsychometrics/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/books/individual-psychometrics/individualpsychometrics/</guid>
+      <description>A free online book about psychometric tools for psychological assessment. A work in progress.</description>
+    </item>
+    
+    <item>
+      <title>Concatenating vectors unless a vector is empty</title>
+      <link>/posts/concatenating-vectors-unless-a-vector-is-empty/</link>
+      <pubDate>Thu, 13 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/concatenating-vectors-unless-a-vector-is-empty/</guid>
+      <description>The paste and paste0 functions have a recycle0 argument that returns an empty vector when any part of the string is empty.</description>
+    </item>
+    
+    <item>
+      <title>Essentials of Assessment Report Writing, 2nd Edition</title>
+      <link>/projects/books/essentials-of-assessment-report-writing-2nd-edition/</link>
+      <pubDate>Mon, 19 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/books/essentials-of-assessment-report-writing-2nd-edition/</guid>
+      <description>A book about making reader-friendly assessment reports that instill hope and promote change.</description>
+    </item>
+    
+    <item>
+      <title>Psychological Testing and Assessment, 10th Edition</title>
+      <link>/projects/books/psychological-testing-and-assessment-10th-edition/</link>
+      <pubDate>Mon, 19 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/books/psychological-testing-and-assessment-10th-edition/</guid>
+      <description>An introduction to tests and measurements</description>
+    </item>
+    
+    <item>
+      <title>ggnormalviolin</title>
+      <link>/projects/packages/ggnormalviolin/</link>
+      <pubDate>Sun, 18 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/packages/ggnormalviolin/</guid>
+      <description>A ggplot2 extension package for creating normal violin plots</description>
+    </item>
+    
+    <item>
+      <title>simstandard</title>
+      <link>/projects/packages/simstandard/</link>
+      <pubDate>Sat, 17 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/packages/simstandard/</guid>
+      <description>R package for simulating data using standardized coefficients</description>
+    </item>
+    
     <item>
       <title>Opensource</title>
       <link>/opensource/</link>
@@ -17,25 +71,7 @@
     </item>
     
     <item>
-      <title>Report Writing</title>
-      <link>/presentations/reportwriting/</link>
-      <pubDate>Sat, 10 Apr 2021 23:46:55 -0400</pubDate>
-      
-      <guid>/presentations/reportwriting/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>CHC Theory</title>
-      <link>/presentations/chctheory/</link>
-      <pubDate>Sat, 10 Apr 2021 23:44:33 -0400</pubDate>
-      
-      <guid>/presentations/chctheory/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Contact</title>
+      <title>Contact Me</title>
       <link>/contact/</link>
       <pubDate>Sat, 10 Apr 2021 21:47:49 -0400</pubDate>
       
@@ -44,80 +80,75 @@
     </item>
     
     <item>
-      <title>Vita</title>
-      <link>/resume/</link>
-      <pubDate>Sat, 10 Apr 2021 21:46:19 -0400</pubDate>
+      <title></title>
+      <link>/articles/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/resume/</guid>
+      <guid>/articles/</guid>
+      <description>Dowdy, A., Tincani, M., &amp;amp; Schneider, W. J. (2020). Evaluation of publication bias in response interruption and redirection: A meta‐analysis. Journal of Applied Behavior Analysis, 53(4), 2151–2171. https://doi.org/10.1002/jaba.724Hajovsky, D. B., Villeneuve, E. F., Schneider, W. J., &amp;amp; Caemmerer, J. M. (2020). An alternative approach to cognitive and achievement relations rsearch: An introduction to quantile regression. Journal of Pediatric Neuropsychology. https://doi.org/10.1007/s40817-020-00086-3Dombrowski, S. C., Beaujean, A. A.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/books/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/books/</guid>
+      <description>Tobin, R. M., Schneider, W. J., &amp;amp; Cohen, R. J. (2022). Psychological testing and assessment: An introduction to tests and measurement (10th ed.). McGraw Hill LLC. https://www.mheducation.com/highered/product/1260837025.htmlSchneider, W. J., Mather, N., Lichtenberger, E. O., &amp;amp; Kaufman, N. L. (2018). Essentials of assessment report writing (2nd ed.). Wiley. https://www.wiley.com/en-us/Essentials+of+Assessment+Report+Writing%2C+2nd+Edition-p-9781119218753</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/chapters/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/chapters/</guid>
+      <description>Floyd, R. G., Farmer, R. L., Schneider, W. J., &amp;amp; McGrew, K. S. (2021). Theories and measurement of intelligence. In L. Glidden, L. Abbeduto, L. L. McIntyre, &amp;amp; M. J. Tassé (Eds.), APA handbook of intellectual and developmental disabilities (Vol. 1, pp. 386–424). American Psychological Association.Schneider, W. J., &amp;amp; McGrew, K. S. (2018). The Cattell-Horn-Carroll theory of cognitive abilities. In D. P. Flanagan &amp;amp; E. M. McDonough (Eds.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/posters/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/posters/</guid>
+      <description>Schneider, W. J. (2016, August 4). Writing reports worth reading all the way through. In R. Flanagan, Sophisticated simplicity: The art of writing reader-friendly assessment reports [Symposium]. Annual American Psychological Association Convention, Denver, CO.Flanagan, D. P., Schneider, W. J., &amp;amp; Alfonso, V. C. (2019, February 26). PSW methods: Comparisons, research, and how to use them responsibly [Mini-Skills Symposium]. National Association of School Psychologists Annual Convention, Atlanta, GA.</description>
+    </item>
+    
+    <item>
+      <title>Presentations</title>
+      <link>/presentations/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/presentations/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>About Me</title>
-      <link>/about/</link>
-      <pubDate>Fri, 09 Apr 2021 21:48:51 -0700</pubDate>
-      
-      <guid>/about/</guid>
-      <description>I am an associate professor at Temple University in the College of Education and Human Development. I belong to both the Educational Leadership and School Psychology programs. Although I have diverse interests, my primary focus is trying to understand and improve the validity of psychological assessment practices.
-My CV</description>
-    </item>
-    
-    <item>
-      <title>First Post</title>
-      <link>/2021/04/09/first-post/</link>
-      <pubDate>Fri, 09 Apr 2021 00:00:00 +0000</pubDate>
-      
-      <guid>/2021/04/09/first-post/</guid>
-      <description>This is my first post.
-diag(4)## [,1] [,2] [,3] [,4]## [1,] 1 0 0 0## [2,] 0 1 0 0## [3,] 0 0 1 0## [4,] 0 0 0 1</description>
-    </item>
-    
-    <item>
-      <title>Hello R Markdown</title>
-      <link>/2020/12/01/hello-r-markdown/</link>
-      <pubDate>Tue, 01 Dec 2020 21:13:14 -0500</pubDate>
-      
-      <guid>/2020/12/01/hello-r-markdown/</guid>
-      <description>R MarkdownThis is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
-You can embed an R code chunk like this:
-summary(cars)## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.</description>
-    </item>
-    
-    <item>
-      <title>A Plain Markdown Post</title>
-      <link>/2016/12/30/a-plain-markdown-post/</link>
-      <pubDate>Fri, 30 Dec 2016 21:49:57 -0700</pubDate>
-      
-      <guid>/2016/12/30/a-plain-markdown-post/</guid>
-      <description>This is a post written in plain Markdown (*.md) instead of R Markdown (*.Rmd). The major differences are:
- You cannot run any R code in a plain Markdown document, whereas in an R Markdown document, you can embed R code chunks (```{r}); A plain Markdown post is rendered through Blackfriday, and an R Markdown document is compiled by rmarkdown and Pandoc.  There are many differences in syntax between Blackfriday&amp;rsquo;s Markdown and Pandoc&amp;rsquo;s Markdown.</description>
-    </item>
-    
-    <item>
-      <title>Lorem Ipsum</title>
-      <link>/2015/01/01/lorem-ipsum/</link>
-      <pubDate>Thu, 01 Jan 2015 13:09:13 -0600</pubDate>
-      
-      <guid>/2015/01/01/lorem-ipsum/</guid>
-      <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</description>
-    </item>
-    
-    <item>
-      <title>Individual Psychometrics</title>
-      <link>/projects/individualpsychometrics/</link>
+      <title>spiro</title>
+      <link>/projects/packages/spiro/spiro/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/projects/individualpsychometrics/</guid>
-      <description>Psychometric tools for psychological assessment</description>
-    </item>
-    
-    <item>
-      <title>Spiro</title>
-      <link>/projects/spiro/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/projects/spiro/</guid>
+      <guid>/projects/packages/spiro/spiro/</guid>
       <description>An R package for making digital spirographs</description>
+    </item>
+    
+    <item>
+      <title>unusualprofile</title>
+      <link>/projects/packages/unusualprofile/unusualprofile/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/packages/unusualprofile/unusualprofile/</guid>
+      <description>An R package for detecting unusual scores in a test profile.</description>
+    </item>
+    
+    <item>
+      <title>Vita</title>
+      <link>/vita/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/vita/</guid>
+      <description>table td {vertical-align: top !important;}table {font-variant-numeric: tabular-nums;}.csl-entry {padding-left:35px;text-indent:-35px;}.csl-entry a i, .csl-entry a{padding-left:0px;text-indent:0px;}p img {max-width:900px;}h1 {margin-top:20px; display:block}h2 {margin-top:15px}h3 {margin-top:10px}h4 {margin-top:5px}#curriculum-vitae h1 {font-size: 40pt}#education td {padding-top: 10px}#education tr:first-child td {padding-top: 0px}.smalldate{font-size: 1rem}Curriculum VitaeW. Joel SchneiderTemple University</description>
     </item>
     
   </channel>

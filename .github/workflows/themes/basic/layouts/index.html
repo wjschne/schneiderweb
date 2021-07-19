@@ -1,0 +1,42 @@
+{{ define "main" }}
+
+<div class="row">
+
+
+  <div class="col-md-5 col-lg-4 col-xl-3">
+
+    <figure class="pt-2 pb-0 mb-0">
+      <img alt="Headshot of W. Joel Schneider" width="100%" src="/images/headshot.png" >
+      <figcaption>W. Joel Schneider</figcaption>
+    </figure>
+
+    <p>
+      <a href="/media/schneider-vita.pdf"><i class="fas fa-download"></i> My CV </a>
+    </p>
+    <p>
+      <a href="/contact"><i class="fas fa-id-card"></i> Contact me </a>
+    </p>
+    <hr>
+
+    
+
+
+  </div>
+
+
+  <div class="col-md-7 col-lg-8 col-xl-9">
+    {{ .Content }}
+  </div>
+</div>
+
+
+
+ <!-- <section class="project-list">
+ 	  <h2>Projects</h2>
+	  <ul>
+	    {{ range (where .Site.RegularPages "Type" "in" "projects") }}
+	      <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+	    {{ end }}
+	  </ul>
+ 	</section> -->
+ 	{{ end }}

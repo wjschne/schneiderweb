@@ -1,0 +1,36 @@
+{{ define "main" }}
+
+<section class="my-2">
+      {{ range .Pages }}
+    <div class="row border-bottom py-2">
+      <div class="col-lg-4 h3">
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      </div>  
+      <div class="col-lg-8">
+        {{ .Summary }}
+        
+        <p class="small">
+          Reading time: {{ math.Round (div (countwords .Content) 200.0) }} minutes.
+        </p>
+        
+      </div>
+    </div>
+    {{ end }}
+    
+    
+    <div class="row">
+      <div class="col-lg-4 h3">
+        <p><a href="https://assessingpsyche.wordpress.com/">AssessingPsyche</a></p>
+        <p><img src = {{ .Params.image}} ></p>
+      </div> 
+      
+      <div class="col-lg-8">
+        Posts from my assessment blog (2010&ndash;2020)
+      </div>
+    </div>
+    
+</section>
+
+{{ .Content }}
+ 	
+{{ end }}

@@ -1,0 +1,37 @@
+{{ define "main" }}
+ 	  <div class="row  my-2">
+ 	    <section class="col-md-3">
+
+ 	        <nav id="toc" data-toggle="toc" class="sticky-top"></nav>
+
+ 	    </section>
+
+ 	    <section class="col-md-9">
+ 	      <h1><a href="{{ .Params.link }}">{{ .Title }}</a></h1>
+
+        {{ if .Params.image }}
+
+
+
+        <p><a href="{{ .Params.link }}"><img style="width: {{ if .Params.image_width }}{{- .Params.image_width -}} {{ else }}100%{{ end }};" src="{{ .Params.image }}" alt=""></a></p>
+
+        {{ end }}
+
+
+
+ 	      {{ .Content }}
+
+
+        {{ if .Params.tech_used }}
+          <h2>Tech used</h2>
+          <ul>
+            {{ range .Params.tech_used }}
+              <li>{{ . }}</li>
+            {{ end }}
+          </ul>
+ 	      {{ end }}
+ 	    </section>
+
+ 	  </div>
+
+{{ end }}

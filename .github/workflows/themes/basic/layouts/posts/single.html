@@ -1,0 +1,38 @@
+{{ define "main" }}
+
+
+
+<article class="post">
+  <header class="p-2">
+    <div class="row">
+      <div class="col-md-9">
+        <h2>{{ .Title }} </h2>
+      </div>
+      <div class="col-md-3 text-md-end">
+        <span class="small">{{ .Date.Format "2006-01-02" }}
+    </span>
+      </div>
+    </div>
+    
+    <p>
+      By {{ .Params.Author }}
+    </p>
+    </header>
+    
+    
+    {{ if .Params.Summary }}
+      <div class="bg-light p-2">
+      <h2>Summary</h3>
+      {{- .Params.Summary -}}
+      </div>
+    {{ end }}
+
+    
+
+
+  <section class="body">
+    {{ .Content }}
+  </section>
+
+</article>
+{{ end }}
