@@ -18,21 +18,7 @@
     </p>
     <hr>
 
-    <h2>Interests</h2>
-      <ul class="small">
-        {{ range .Site.Data.interests.interests }}
-          <li>
-            {{ .name }}
-            <ul>
-              {{range .subs }}
-                <li>
-                  {{ . }}
-                </li>
-              {{ end }}
-            </ul>
-          </li>
-        {{ end }}
-      </ul>
+    
 
 
   </div>

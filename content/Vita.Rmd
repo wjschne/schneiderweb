@@ -382,19 +382,21 @@ jsonlite::read_json("../data/My Articles.json", simplifyVector = T) %>%
   as_tibble() %>% 
   rename(journal = `container-title`,
          year = issued) %>% 
-  mutate(year = flatten(year) %>% as.integer(),
+  mutate(year = flatten(year) %>% map(`[[`, 1) %>% as.integer(),
          author = make_authors(author),
          title = na2link(title, 
                          href = paste0("https://doi.org/", DOI), 
                          suffix = title_suffix(title)),
          pubid = str_remove(note, "pubid:"),
          issue = na2empty(issue, paste0("(", issue, ")")),
-         page = str_replace(page, "-", "&ndash;")) %>% 
+         page = ifelse(is.na(page), "", str_replace(page, "-", "&ndash;")),
+         volume = ifelse(is.na(volume), "", paste0(", ", volume))) %>% 
   left_join(d_pubs %>% select(pubid, cites, cid), by = "pubid") %>% 
   mutate(citations = make_citation_button(cites, cid, year)) %>% 
-  mutate(citation = glue::glue('<div class="csl-entry">{author} ({year}). {title} <em>{journal}, {volume}</em>{issue}, {page}. {citations}</div>')) %>% 
+  mutate(citation = glue::glue('<div class="csl-entry">{author} ({year}). {title} <em>{journal}{volume}</em>{issue}, {page}. {citations}</div>')) %>% 
  arrange(-year, author) %>%  
   pull(citation) %>% 
+  str_replace("\\. ,", ".") %>% 
   cat
 
 ```
