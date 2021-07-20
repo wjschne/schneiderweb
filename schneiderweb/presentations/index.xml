@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Presentations on W. Joel Schneider</title>
+    <link>/presentations/</link>
+    <description>Recent content in Presentations on W. Joel Schneider</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 10 Apr 2021 23:46:55 -0400</lastBuildDate><atom:link href="/presentations/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Report Writing</title>
+      <link>/presentations/reportwriting/</link>
+      <pubDate>Sat, 10 Apr 2021 23:46:55 -0400</pubDate>
+      
+      <guid>/presentations/reportwriting/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>CHC Theory</title>
+      <link>/presentations/chctheory/</link>
+      <pubDate>Sat, 10 Apr 2021 23:44:33 -0400</pubDate>
+      
+      <guid>/presentations/chctheory/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
