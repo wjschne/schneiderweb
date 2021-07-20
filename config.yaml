@@ -1,4 +1,5 @@
-baseurl: /
+baseurl: "/"
+canonifyurls: true
 languageCode: en-us
 title: "W. Joel Schneider"
 theme: basic
