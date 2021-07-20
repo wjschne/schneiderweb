@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on W. Joel Schneider</title>
-    <link>schneiderweb/tags/</link>
+    <link>https://wjschne.github.io/schneiderweb/tags/</link>
     <description>Recent content in Tags on W. Joel Schneider</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 13 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="schneiderweb/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 13 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://wjschne.github.io/schneiderweb/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>R</title>
-      <link>schneiderweb/tags/r/</link>
+      <link>https://wjschne.github.io/schneiderweb/tags/r/</link>
       <pubDate>Thu, 13 May 2021 00:00:00 +0000</pubDate>
       
-      <guid>schneiderweb/tags/r/</guid>
+      <guid>https://wjschne.github.io/schneiderweb/tags/r/</guid>
       <description></description>
     </item>
     
     <item>
       <title>package</title>
-      <link>schneiderweb/tags/package/</link>
+      <link>https://wjschne.github.io/schneiderweb/tags/package/</link>
       <pubDate>Sun, 18 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>schneiderweb/tags/package/</guid>
+      <guid>https://wjschne.github.io/schneiderweb/tags/package/</guid>
       <description></description>
     </item>
     

@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Myprojects on W. Joel Schneider</title>
-    <link>schneiderweb/myprojects/</link>
+    <link>https://wjschne.github.io/schneiderweb/myprojects/</link>
     <description>Recent content in Myprojects on W. Joel Schneider</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 19 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="schneiderweb/myprojects/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 19 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://wjschne.github.io/schneiderweb/myprojects/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>book</title>
-      <link>schneiderweb/myprojects/book/</link>
+      <link>https://wjschne.github.io/schneiderweb/myprojects/book/</link>
       <pubDate>Mon, 19 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>schneiderweb/myprojects/book/</guid>
+      <guid>https://wjschne.github.io/schneiderweb/myprojects/book/</guid>
       <description></description>
     </item>
     
     <item>
       <title>package</title>
-      <link>schneiderweb/myprojects/package/</link>
+      <link>https://wjschne.github.io/schneiderweb/myprojects/package/</link>
       <pubDate>Sun, 18 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>schneiderweb/myprojects/package/</guid>
+      <guid>https://wjschne.github.io/schneiderweb/myprojects/package/</guid>
       <description></description>
     </item>
     
