@@ -2,152 +2,152 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Home on W. Joel Schneider</title>
-    <link>https://wjschne.github.io/schneiderweb/</link>
+    <link>/</link>
     <description>Recent content in Home on W. Joel Schneider</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 13 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://wjschne.github.io/schneiderweb/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 13 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Individual Psychometrics</title>
-      <link>https://wjschne.github.io/schneiderweb/projects/books/individual-psychometrics/individualpsychometrics/</link>
+      <link>/projects/books/individual-psychometrics/individualpsychometrics/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://wjschne.github.io/schneiderweb/projects/books/individual-psychometrics/individualpsychometrics/</guid>
+      <guid>/projects/books/individual-psychometrics/individualpsychometrics/</guid>
       <description>A free online book about psychometric tools for psychological assessment. A work in progress.</description>
     </item>
     
     <item>
       <title>Concatenating vectors unless a vector is empty</title>
-      <link>https://wjschne.github.io/schneiderweb/posts/concatenating-vectors-unless-a-vector-is-empty/</link>
+      <link>/posts/concatenating-vectors-unless-a-vector-is-empty/</link>
       <pubDate>Thu, 13 May 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://wjschne.github.io/schneiderweb/posts/concatenating-vectors-unless-a-vector-is-empty/</guid>
+      <guid>/posts/concatenating-vectors-unless-a-vector-is-empty/</guid>
       <description>The paste and paste0 functions have a recycle0 argument that returns an empty vector when any part of the string is empty.</description>
     </item>
     
     <item>
       <title>Essentials of Assessment Report Writing, 2nd Edition</title>
-      <link>https://wjschne.github.io/schneiderweb/projects/books/essentials-of-assessment-report-writing-2nd-edition/</link>
+      <link>/projects/books/essentials-of-assessment-report-writing-2nd-edition/</link>
       <pubDate>Mon, 19 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://wjschne.github.io/schneiderweb/projects/books/essentials-of-assessment-report-writing-2nd-edition/</guid>
+      <guid>/projects/books/essentials-of-assessment-report-writing-2nd-edition/</guid>
       <description>A book about making reader-friendly assessment reports that instill hope and promote change.</description>
     </item>
     
     <item>
       <title>Psychological Testing and Assessment, 10th Edition</title>
-      <link>https://wjschne.github.io/schneiderweb/projects/books/psychological-testing-and-assessment-10th-edition/</link>
+      <link>/projects/books/psychological-testing-and-assessment-10th-edition/</link>
       <pubDate>Mon, 19 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://wjschne.github.io/schneiderweb/projects/books/psychological-testing-and-assessment-10th-edition/</guid>
+      <guid>/projects/books/psychological-testing-and-assessment-10th-edition/</guid>
       <description>An introduction to tests and measurements</description>
     </item>
     
     <item>
       <title>ggnormalviolin</title>
-      <link>https://wjschne.github.io/schneiderweb/projects/packages/ggnormalviolin/</link>
+      <link>/projects/packages/ggnormalviolin/</link>
       <pubDate>Sun, 18 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://wjschne.github.io/schneiderweb/projects/packages/ggnormalviolin/</guid>
+      <guid>/projects/packages/ggnormalviolin/</guid>
       <description>A ggplot2 extension package for creating normal violin plots</description>
     </item>
     
     <item>
       <title>simstandard</title>
-      <link>https://wjschne.github.io/schneiderweb/projects/packages/simstandard/</link>
+      <link>/projects/packages/simstandard/</link>
       <pubDate>Sat, 17 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://wjschne.github.io/schneiderweb/projects/packages/simstandard/</guid>
+      <guid>/projects/packages/simstandard/</guid>
       <description>R package for simulating data using standardized coefficients</description>
     </item>
     
     <item>
       <title>Opensource</title>
-      <link>https://wjschne.github.io/schneiderweb/opensource/</link>
+      <link>/opensource/</link>
       <pubDate>Sun, 11 Apr 2021 01:06:17 -0400</pubDate>
       
-      <guid>https://wjschne.github.io/schneiderweb/opensource/</guid>
+      <guid>/opensource/</guid>
       <description>My GitHub Repositories </description>
     </item>
     
     <item>
       <title>Contact Me</title>
-      <link>https://wjschne.github.io/schneiderweb/contact/</link>
+      <link>/contact/</link>
       <pubDate>Sat, 10 Apr 2021 21:47:49 -0400</pubDate>
       
-      <guid>https://wjschne.github.io/schneiderweb/contact/</guid>
+      <guid>/contact/</guid>
       <description></description>
     </item>
     
     <item>
       <title></title>
-      <link>https://wjschne.github.io/schneiderweb/articles/</link>
+      <link>/articles/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://wjschne.github.io/schneiderweb/articles/</guid>
+      <guid>/articles/</guid>
       <description>Dowdy, A., Tincani, M., &amp;amp; Schneider, W. J. (2020). Evaluation of publication bias in response interruption and redirection: A meta‐analysis. Journal of Applied Behavior Analysis, 53(4), 2151–2171. https://doi.org/10.1002/jaba.724Hajovsky, D. B., Villeneuve, E. F., Schneider, W. J., &amp;amp; Caemmerer, J. M. (2020). An alternative approach to cognitive and achievement relations rsearch: An introduction to quantile regression. Journal of Pediatric Neuropsychology. https://doi.org/10.1007/s40817-020-00086-3Dombrowski, S. C., Beaujean, A. A.</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://wjschne.github.io/schneiderweb/books/</link>
+      <link>/books/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://wjschne.github.io/schneiderweb/books/</guid>
+      <guid>/books/</guid>
       <description>Tobin, R. M., Schneider, W. J., &amp;amp; Cohen, R. J. (2022). Psychological testing and assessment: An introduction to tests and measurement (10th ed.). McGraw Hill LLC. https://www.mheducation.com/highered/product/1260837025.htmlSchneider, W. J., Mather, N., Lichtenberger, E. O., &amp;amp; Kaufman, N. L. (2018). Essentials of assessment report writing (2nd ed.). Wiley. https://www.wiley.com/en-us/Essentials+of+Assessment+Report+Writing%2C+2nd+Edition-p-9781119218753</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://wjschne.github.io/schneiderweb/chapters/</link>
+      <link>/chapters/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://wjschne.github.io/schneiderweb/chapters/</guid>
+      <guid>/chapters/</guid>
       <description>Floyd, R. G., Farmer, R. L., Schneider, W. J., &amp;amp; McGrew, K. S. (2021). Theories and measurement of intelligence. In L. Glidden, L. Abbeduto, L. L. McIntyre, &amp;amp; M. J. Tassé (Eds.), APA handbook of intellectual and developmental disabilities (Vol. 1, pp. 386–424). American Psychological Association.Schneider, W. J., &amp;amp; McGrew, K. S. (2018). The Cattell-Horn-Carroll theory of cognitive abilities. In D. P. Flanagan &amp;amp; E. M. McDonough (Eds.</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://wjschne.github.io/schneiderweb/posters/</link>
+      <link>/posters/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://wjschne.github.io/schneiderweb/posters/</guid>
+      <guid>/posters/</guid>
       <description>Schneider, W. J. (2016, August 4). Writing reports worth reading all the way through. In R. Flanagan, Sophisticated simplicity: The art of writing reader-friendly assessment reports [Symposium]. Annual American Psychological Association Convention, Denver, CO.Flanagan, D. P., Schneider, W. J., &amp;amp; Alfonso, V. C. (2019, February 26). PSW methods: Comparisons, research, and how to use them responsibly [Mini-Skills Symposium]. National Association of School Psychologists Annual Convention, Atlanta, GA.</description>
     </item>
     
     <item>
       <title>Presentations</title>
-      <link>https://wjschne.github.io/schneiderweb/presentations/</link>
+      <link>/presentations/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://wjschne.github.io/schneiderweb/presentations/</guid>
+      <guid>/presentations/</guid>
       <description></description>
     </item>
     
     <item>
       <title>spiro</title>
-      <link>https://wjschne.github.io/schneiderweb/projects/packages/spiro/spiro/</link>
+      <link>/projects/packages/spiro/spiro/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://wjschne.github.io/schneiderweb/projects/packages/spiro/spiro/</guid>
+      <guid>/projects/packages/spiro/spiro/</guid>
       <description>An R package for making digital spirographs</description>
     </item>
     
     <item>
       <title>unusualprofile</title>
-      <link>https://wjschne.github.io/schneiderweb/projects/packages/unusualprofile/unusualprofile/</link>
+      <link>/projects/packages/unusualprofile/unusualprofile/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://wjschne.github.io/schneiderweb/projects/packages/unusualprofile/unusualprofile/</guid>
+      <guid>/projects/packages/unusualprofile/unusualprofile/</guid>
       <description>An R package for detecting unusual scores in a test profile.</description>
     </item>
     
     <item>
       <title>Vita</title>
-      <link>https://wjschne.github.io/schneiderweb/vita/</link>
+      <link>/vita/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://wjschne.github.io/schneiderweb/vita/</guid>
+      <guid>/vita/</guid>
       <description>table td {vertical-align: top !important;}table {font-variant-numeric: tabular-nums;}.csl-entry {padding-left:35px;text-indent:-35px;}.csl-entry a i, .csl-entry a{padding-left:0px;text-indent:0px;}p img {max-width:900px;}h1 {margin-top:20px; display:block}h2 {margin-top:15px}h3 {margin-top:10px}h4 {margin-top:5px}#curriculum-vitae h1 {font-size: 40pt}#education td {padding-top: 10px}#education tr:first-child td {padding-top: 0px}.smalldate{font-size: 1rem}Curriculum VitaeW. Joel SchneiderTemple University</description>
     </item>
     

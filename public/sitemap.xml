@@ -2,79 +2,79 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://wjschne.github.io/schneiderweb/projects/books/individual-psychometrics/individualpsychometrics/</loc>
+    <loc>/projects/books/individual-psychometrics/individualpsychometrics/</loc>
   </url><url>
-    <loc>https://wjschne.github.io/schneiderweb/posts/</loc>
+    <loc>/posts/</loc>
     <lastmod>2021-05-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://wjschne.github.io/schneiderweb/projects/</loc>
+    <loc>/projects/</loc>
     <lastmod>2021-04-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://wjschne.github.io/schneiderweb/courses/</loc>
+    <loc>/courses/</loc>
     <lastmod>2021-04-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://wjschne.github.io/schneiderweb/posts/concatenating-vectors-unless-a-vector-is-empty/</loc>
+    <loc>/posts/concatenating-vectors-unless-a-vector-is-empty/</loc>
     <lastmod>2021-05-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://wjschne.github.io/schneiderweb/</loc>
+    <loc>/</loc>
     <lastmod>2021-05-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://wjschne.github.io/schneiderweb/tags/r/</loc>
+    <loc>/tags/r/</loc>
     <lastmod>2021-05-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://wjschne.github.io/schneiderweb/tags/</loc>
+    <loc>/tags/</loc>
     <lastmod>2021-05-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://wjschne.github.io/schneiderweb/myprojects/book/</loc>
+    <loc>/myprojects/book/</loc>
     <lastmod>2021-04-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://wjschne.github.io/schneiderweb/projects/books/essentials-of-assessment-report-writing-2nd-edition/</loc>
+    <loc>/projects/books/essentials-of-assessment-report-writing-2nd-edition/</loc>
     <lastmod>2021-04-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://wjschne.github.io/schneiderweb/myprojects/</loc>
+    <loc>/myprojects/</loc>
     <lastmod>2021-04-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://wjschne.github.io/schneiderweb/projects/books/psychological-testing-and-assessment-10th-edition/</loc>
+    <loc>/projects/books/psychological-testing-and-assessment-10th-edition/</loc>
     <lastmod>2021-04-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://wjschne.github.io/schneiderweb/projects/packages/ggnormalviolin/</loc>
+    <loc>/projects/packages/ggnormalviolin/</loc>
     <lastmod>2021-04-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://wjschne.github.io/schneiderweb/tags/package/</loc>
+    <loc>/tags/package/</loc>
     <lastmod>2021-04-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://wjschne.github.io/schneiderweb/myprojects/package/</loc>
+    <loc>/myprojects/package/</loc>
     <lastmod>2021-04-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://wjschne.github.io/schneiderweb/categories/</loc>
+    <loc>/categories/</loc>
     <lastmod>2021-04-17T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://wjschne.github.io/schneiderweb/categories/r-package/</loc>
+    <loc>/categories/r-package/</loc>
     <lastmod>2021-04-17T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://wjschne.github.io/schneiderweb/projects/packages/simstandard/</loc>
+    <loc>/projects/packages/simstandard/</loc>
     <lastmod>2021-04-17T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://wjschne.github.io/schneiderweb/opensource/</loc>
+    <loc>/opensource/</loc>
     <lastmod>2021-04-11T01:06:17-04:00</lastmod>
   </url><url>
-    <loc>https://wjschne.github.io/schneiderweb/contact/</loc>
+    <loc>/contact/</loc>
     <lastmod>2021-04-10T21:47:49-04:00</lastmod>
   </url><url>
-    <loc>https://wjschne.github.io/schneiderweb/articles/</loc>
+    <loc>/articles/</loc>
   </url><url>
-    <loc>https://wjschne.github.io/schneiderweb/books/</loc>
+    <loc>/books/</loc>
   </url><url>
-    <loc>https://wjschne.github.io/schneiderweb/chapters/</loc>
+    <loc>/chapters/</loc>
   </url><url>
-    <loc>https://wjschne.github.io/schneiderweb/posters/</loc>
+    <loc>/posters/</loc>
   </url><url>
-    <loc>https://wjschne.github.io/schneiderweb/presentations/</loc>
+    <loc>/presentations/</loc>
   </url><url>
-    <loc>https://wjschne.github.io/schneiderweb/projects/packages/spiro/spiro/</loc>
+    <loc>/projects/packages/spiro/spiro/</loc>
   </url><url>
-    <loc>https://wjschne.github.io/schneiderweb/projects/packages/unusualprofile/unusualprofile/</loc>
+    <loc>/projects/packages/unusualprofile/unusualprofile/</loc>
   </url><url>
-    <loc>https://wjschne.github.io/schneiderweb/vita/</loc>
+    <loc>/vita/</loc>
   </url>
 </urlset>

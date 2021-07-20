@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>R Package on W. Joel Schneider</title>
-    <link>https://wjschne.github.io/schneiderweb/categories/r-package/</link>
+    <link>/categories/r-package/</link>
     <description>Recent content in R Package on W. Joel Schneider</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 17 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://wjschne.github.io/schneiderweb/categories/r-package/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 17 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="/categories/r-package/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>simstandard</title>
-      <link>https://wjschne.github.io/schneiderweb/projects/packages/simstandard/</link>
+      <link>/projects/packages/simstandard/</link>
       <pubDate>Sat, 17 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://wjschne.github.io/schneiderweb/projects/packages/simstandard/</guid>
+      <guid>/projects/packages/simstandard/</guid>
       <description>R package for simulating data using standardized coefficients</description>
     </item>
     
