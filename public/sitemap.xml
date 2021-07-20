@@ -2,79 +2,79 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/projects/books/individual-psychometrics/individualpsychometrics/</loc>
+    <loc>schneiderweb/projects/books/individual-psychometrics/individualpsychometrics/</loc>
   </url><url>
-    <loc>/posts/</loc>
+    <loc>schneiderweb/posts/</loc>
     <lastmod>2021-05-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/projects/</loc>
+    <loc>schneiderweb/projects/</loc>
     <lastmod>2021-04-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/courses/</loc>
+    <loc>schneiderweb/courses/</loc>
     <lastmod>2021-04-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/posts/concatenating-vectors-unless-a-vector-is-empty/</loc>
+    <loc>schneiderweb/posts/concatenating-vectors-unless-a-vector-is-empty/</loc>
     <lastmod>2021-05-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/</loc>
+    <loc>schneiderweb/</loc>
     <lastmod>2021-05-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/r/</loc>
+    <loc>schneiderweb/tags/r/</loc>
     <lastmod>2021-05-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/</loc>
+    <loc>schneiderweb/tags/</loc>
     <lastmod>2021-05-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/myprojects/book/</loc>
+    <loc>schneiderweb/myprojects/book/</loc>
     <lastmod>2021-04-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/projects/books/essentials-of-assessment-report-writing-2nd-edition/</loc>
+    <loc>schneiderweb/projects/books/essentials-of-assessment-report-writing-2nd-edition/</loc>
     <lastmod>2021-04-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/myprojects/</loc>
+    <loc>schneiderweb/myprojects/</loc>
     <lastmod>2021-04-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/projects/books/psychological-testing-and-assessment-10th-edition/</loc>
+    <loc>schneiderweb/projects/books/psychological-testing-and-assessment-10th-edition/</loc>
     <lastmod>2021-04-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/projects/packages/ggnormalviolin/</loc>
+    <loc>schneiderweb/projects/packages/ggnormalviolin/</loc>
     <lastmod>2021-04-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/package/</loc>
+    <loc>schneiderweb/tags/package/</loc>
     <lastmod>2021-04-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/myprojects/package/</loc>
+    <loc>schneiderweb/myprojects/package/</loc>
     <lastmod>2021-04-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/categories/</loc>
+    <loc>schneiderweb/categories/</loc>
     <lastmod>2021-04-17T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/categories/r-package/</loc>
+    <loc>schneiderweb/categories/r-package/</loc>
     <lastmod>2021-04-17T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/projects/packages/simstandard/</loc>
+    <loc>schneiderweb/projects/packages/simstandard/</loc>
     <lastmod>2021-04-17T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/opensource/</loc>
+    <loc>schneiderweb/opensource/</loc>
     <lastmod>2021-04-11T01:06:17-04:00</lastmod>
   </url><url>
-    <loc>/contact/</loc>
+    <loc>schneiderweb/contact/</loc>
     <lastmod>2021-04-10T21:47:49-04:00</lastmod>
   </url><url>
-    <loc>/articles/</loc>
+    <loc>schneiderweb/articles/</loc>
   </url><url>
-    <loc>/books/</loc>
+    <loc>schneiderweb/books/</loc>
   </url><url>
-    <loc>/chapters/</loc>
+    <loc>schneiderweb/chapters/</loc>
   </url><url>
-    <loc>/posters/</loc>
+    <loc>schneiderweb/posters/</loc>
   </url><url>
-    <loc>/presentations/</loc>
+    <loc>schneiderweb/presentations/</loc>
   </url><url>
-    <loc>/projects/packages/spiro/spiro/</loc>
+    <loc>schneiderweb/projects/packages/spiro/spiro/</loc>
   </url><url>
-    <loc>/projects/packages/unusualprofile/unusualprofile/</loc>
+    <loc>schneiderweb/projects/packages/unusualprofile/unusualprofile/</loc>
   </url><url>
-    <loc>/vita/</loc>
+    <loc>schneiderweb/vita/</loc>
   </url>
 </urlset>

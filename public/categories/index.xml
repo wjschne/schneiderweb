@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on W. Joel Schneider</title>
-    <link>/categories/</link>
+    <link>schneiderweb/categories/</link>
     <description>Recent content in Categories on W. Joel Schneider</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 17 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 17 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="schneiderweb/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>R Package</title>
-      <link>/categories/r-package/</link>
+      <link>schneiderweb/categories/r-package/</link>
       <pubDate>Sat, 17 Apr 2021 00:00:00 +0000</pubDate>
       
-      <guid>/categories/r-package/</guid>
+      <guid>schneiderweb/categories/r-package/</guid>
       <description></description>
     </item>
     
