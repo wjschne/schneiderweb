@@ -14,12 +14,134 @@ tags:
 
 
 <p>Sometimes I want to put a plot caption in the lower right corner of the plot.</p>
-<pre class="r"><code>p &lt;- ggplot() +
-  stat_function(xlim = c(-4,4), fun = dnorm) + 
+<pre class="r"><code>library(tidyverse)
+p &lt;- ggplot() +
+  stat_function(xlim = c(-4,4), fun = dnorm, n = 801) + 
   labs(x = &quot;z-scores&quot;, caption = &quot;Note: Mean = 0, SD = 1&quot;)
 
 p</code></pre>
-<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/default%20position-1.svg" width="75%" /></p>
 <p>However, I want the caption to be a little higher, on the same line as the x-axis title. To do so, set a a negative top margin:</p>
 <pre class="r"><code>p + theme(plot.caption = element_text(margin = margin(t = -10, unit = &quot;pt&quot;)))</code></pre>
-<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/on%20same%20line-1.svg" width="75%" /></p>
+<p>Here is a more finished example.</p>
+<pre class="r"><code>library(ggnormalviolin)
+library(ggtext)
+my_font_size = 16
+my_font &lt;- &quot;Roboto Condensed&quot;
+update_geom_defaults(geom = &quot;text&quot;,new = list(family = my_font) )
+update_geom_defaults(geom = &quot;label&quot;,new = list(family = my_font) )
+update_geom_defaults(&quot;richtext&quot;, list(family = my_font))
+theme_set(theme_minimal(base_size = my_font_size, base_family = my_font))
+
+d_rect &lt;- tibble(SS = 100, 
+                 width = c(20, 40, 60, 80, 122), 
+                 fill = paste0(&quot;gray&quot;, c(95, 90, 80, 70, 65) - 25)) %&gt;% 
+  arrange(-width)
+
+tibble(
+  Scale = c(
+    &quot;Fluid Reasoning&quot;,
+    &quot;Verbal Comprehension&quot;,
+    &quot;Visual-Spatial Processing&quot;,
+    &quot;Working Memory&quot;,
+    &quot;Processing Speed&quot;,
+    &quot;Population&quot;),
+  y = c(5:1 - 0.5, 0),
+  SS = c(115, 111, 109, 86, 79, 100),
+  rxx = c(.93, .92, .92, .92, .88, 0),
+  width = c(rep(1.4, 5), 10.4),
+  alpha = c(rep(1, 5), .3)
+) %&gt;% 
+  mutate(true_hat = rxx * (SS - 100) + 100, 
+         see = ifelse(rxx == 0, 15, 15 * sqrt(rxx - rxx ^ 2)),
+         Scale = fct_inorder(Scale) %&gt;% fct_rev()) %&gt;% 
+  ggplot(aes(y, SS)) + 
+  geom_tile(data = d_rect, aes(width = 5.8, x = 2.9, 
+                               fill = fill, 
+                               height = width, 
+                               y = SS)) + 
+  geom_normalviolin(aes(mu = true_hat, 
+                                        sigma = see, 
+                                        width = width,
+                                        alpha = alpha), 
+                                    face_left = F, 
+                    fill = &quot;white&quot;) + 
+  geom_richtext(aes(label = ifelse(
+    Scale == &quot;Population&quot;, 
+    &quot;Population Mean&quot;, 
+    paste0(&quot;&lt;span style=&#39;font-size:8.5pt;color:white&#39;&gt;(&quot;, 
+           round(100 * pnorm(SS, 100, 15),0),
+           &quot;) &lt;/span&gt;&quot;,
+           SS, 
+           &quot;&lt;span style=&#39;font-size:9pt;color:#666666&#39;&gt; (&quot;, 
+           round(100 * pnorm(SS, 100, 15),0),
+           &quot;)&lt;/span&gt;&quot;))), 
+    vjust = -0.2, 
+    lineheight = .8, 
+    fill = NA, 
+    color = &quot;gray20&quot;,
+    label.color = NA,
+    label.padding = unit(0,&quot;mm&quot;)) +
+  geom_text(aes(y = true_hat, 
+                label = ifelse(Scale == &quot;Population&quot;, 
+                               &quot;&quot;, 
+                               as.character(Scale))), 
+            vjust = 1.5, 
+            color = &quot;gray15&quot;,
+            lineheight = .8) +
+  geom_linerange(aes(ymin = true_hat - 1.96 * see,
+                      ymax = true_hat + 1.96 * see), 
+                 size = .5) +
+  geom_pointrange(aes(ymin = true_hat - see,
+                      ymax = true_hat + see), 
+                  size = 1.2, 
+                  fatten = 1.5) +
+  geom_text(aes(x = x, y = y, label = label), 
+            data = tibble(
+              y = c(49.5, 65, 75, 85, 100, 115, 125, 135, 150.5), 
+              x = 5.5, 
+              label = c(&quot;Extremely\nLow Range&quot;, 
+                                  &quot;Very\nLow&quot;, 
+                                  &quot;Low\nRange&quot;, 
+                                  &quot;Low\nAverage&quot;, 
+                                  &quot;Average\nRange&quot;, 
+                                  &quot;High\nAverage&quot;, 
+                                  &quot;High\nRange&quot;, 
+                                  &quot;Very\nHigh&quot;, 
+                                  &quot;Extremely\nHigh Range&quot;)), 
+            color = &quot;white&quot;, lineheight = .8, size = 4.25) +
+  scale_y_continuous(
+    &quot;Standard Scores &lt;span style=&#39;font-size:11.7pt;color:#656565&#39;&gt;&lt;br&gt;
+    (and Percentile Ranks)&lt;/span&gt;&quot;, 
+    breaks = seq(40, 160, 10), 
+    limits = c(37, 163),
+    labels = \(x) paste0(x,
+                         &quot;&lt;br&gt;&lt;span style=&#39;font-size:10pt;color:#656565&#39;&gt;(&quot;, 
+                         pnorm(x,100, 15) %&gt;% 
+                           WJSmisc::proportion2percentile(digits = 2) %&gt;%
+                           str_trim(), 
+                         &quot;)&lt;/span&gt;&quot;),
+    expand = expansion()) +
+  scale_x_continuous(NULL, expand = expansion(), breaks = NULL) +
+  scale_alpha_identity() +
+  scale_fill_identity() +
+  coord_flip(clip = &quot;off&quot;) + 
+  theme(axis.title.x = element_markdown(hjust = 0, 
+                                        margin = margin(t = 1.25, 
+                                                        l = 2,
+                                                        unit = &quot;mm&quot;)),
+        axis.text.x = element_markdown(colour = &quot;gray20&quot;),
+        plot.caption = element_markdown(hjust = 0, 
+                                        size = 10, 
+                                        margin = margin(t = -10.25, 
+                                                        l = 100, 
+                                                        unit = &quot;mm&quot;), 
+                                        color = &quot;gray40&quot;),
+        plot.title = element_text(hjust = .025)) +
+  labs(
+    title = &quot;Display of Cognitive Test Scores&quot;,
+    caption = &quot;**Notes:** The white normal curves represent the expected 
+       true&lt;br&gt;score distributions for each observed score. The black lines&lt;br&gt;
+       underneath span the 68% and 95% confidence intervals.&quot;)</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/display%20scores-1.svg" width="75%" /></p>
