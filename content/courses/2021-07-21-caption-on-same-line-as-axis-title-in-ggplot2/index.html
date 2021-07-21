@@ -1,0 +1,25 @@
+---
+title: Caption on same line as axis title in ggplot2
+author: W. Joel Schneider
+date: '2021-07-21'
+slug: caption-on-same-line-as-axis-title-in-ggplot2
+categories: []
+summary: "You can put the caption on the line as the x-axis title"
+tags:
+  - R
+  - ggplot2
+---
+
+<script src="{{< blogdown/postref >}}index_files/header-attrs/header-attrs.js"></script>
+
+
+<p>Sometimes I want to put a plot caption in the lower right corner of the plot.</p>
+<pre class="r"><code>p &lt;- ggplot() +
+  stat_function(xlim = c(-4,4), fun = dnorm) + 
+  labs(x = &quot;z-scores&quot;, caption = &quot;Note: Mean = 0, SD = 1&quot;)
+
+p</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p>However, I want the caption to be a little higher, on the same line as the x-axis title. To do so, set a a negative top margin:</p>
+<pre class="r"><code>p + theme(plot.caption = element_text(margin = margin(t = -10, unit = &quot;pt&quot;)))</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
