@@ -62,10 +62,10 @@ font-size: 40pt
 
 ```
 
-```{r setup, include=FALSE}
+```{r setup, include=FALSE, message=FALSE, warning=FALSE}
 library(extrafont)
-loadfonts("win")
-loadfonts()
+loadfonts("win", quiet = TRUE)
+loadfonts(quiet = TRUE)
 library(tidyverse)
 knitr::opts_chunk$set(echo = F, cache = F, dev = "svg")
 options(knitr.kable.NA = "")
@@ -266,7 +266,7 @@ tibble::tribble(
 #. *Development of the Compositator* (PI), $11,000, Woodcock-Muñoz Foundation (2008–2010)
 #. *Exploring the Impact of Cognitive Abilities on Behavior Problems* (PI), $2500, Illinois State University [(2005)]{.smalldate}
 
-```{r scholar, cache=F}
+```{r scholar, cache=F, warning=FALSE, message=FALSE}
 library(scholar)
 
 id <- "aojOxP4AAAAJ"
