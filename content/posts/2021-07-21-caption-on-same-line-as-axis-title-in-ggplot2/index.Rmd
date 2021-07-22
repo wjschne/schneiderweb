@@ -13,11 +13,14 @@ tags:
 ```{r setup, include=FALSE}
 library(tidyverse)
 knitr::opts_chunk$set(echo = TRUE, dev = "svglite", out.width = '75%')
-options(
+if (!interactive()) {
+  options(
   device = function(file, width, height) {
     svglite::svglite(tempfile(), width = width, height = height)
   }
 )
+}
+
 ```
 
 Sometimes I want to put a plot caption in the lower right corner of the plot.
@@ -162,5 +165,6 @@ tibble(
 
 
 ```
+
 
 

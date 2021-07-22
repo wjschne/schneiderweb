@@ -2,7 +2,7 @@
 title: Home
 ---
 
-I am an associate professor at [Temple University in the College of Education and Human Development](https://education.temple.edu/). I belong to both the [School Psychology](https://www.temple.edu/academics/degree-programs/school-psychology-phd-ed-scps-phd) and [Educational Leadership](https://www.temple.edu/academics/degree-programs/educational-leadership-edd-ed-edls-edd) programs. 
+I am a professor at [Temple University in the College of Education and Human Development](https://education.temple.edu/). I belong to both the [School Psychology](https://www.temple.edu/academics/degree-programs/school-psychology-phd-ed-scps-phd) and [Educational Leadership](https://www.temple.edu/academics/degree-programs/educational-leadership-edd-ed-edls-edd) programs. 
 
 Although I have diverse interests, my primary focus is trying to understand and improve the validity of psychological assessment practices. I [teach courses](/courses) in assessment, counseling, statistics, and research methods.
 
