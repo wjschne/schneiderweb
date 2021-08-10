@@ -1,7 +1,0 @@
----
-bibliography: ../data/My Talks.json
-nocite: "@*"
-csl: apa-cv.csl
-output: html_fragment
----
-

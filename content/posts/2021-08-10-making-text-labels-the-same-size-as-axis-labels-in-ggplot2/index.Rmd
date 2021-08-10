@@ -1,0 +1,78 @@
+---
+title: Making text labels the same size as axis labels in ggplot2
+author: W. Joel Schneider
+date: '2021-08-10'
+slug: making-text-labels-the-same-size-as-axis-labels-in-ggplot2
+categories: []
+summary: "The geom_text and geom_label functions do not specifiy text size the same way as the rest of ggplot2 elements do. For consistent text sizes, we can apply a simple conversion."
+tags:
+  - ggplot2
+  - R
+---
+
+As explained in [this ggplot2 vignette](https://ggplot2.tidyverse.org/articles/ggplot2-specs.html#font-size-1), the `size` parameter in `geom_text` and `geom_label` is in millimeters, and the `size` parameter in all other text elements in ggplot2 is in points.
+
+```{r setup, include=FALSE}
+library(tidyverse)
+```
+
+If I specify the `base_size` of the plot and the `size` of a label to 16, you can see that the text label is much bigger than 16. 
+
+```{r}
+library(tidyverse)
+textsize <- 16
+ggplot() +
+  stat_function(
+    fun = dnorm,
+    xlim = c(-4, 4),
+    geom = "area",
+    alpha = .3
+  ) +
+  theme_minimal(base_size = textsize) +
+  annotate(
+    geom = "text",
+    x = 0,
+    y = 0,
+    label = "Mean = 0",
+    size = textsize,
+    vjust = -.1
+  )
+```
+
+If you do not mind a little trial and error, you can fiddle with the `size` parameter until you find a value that looks good to you. However, what if we want the axis text labels and the output of `geom_text` to be *exactly* the same size?
+
+We are in luck because ggplot2 has a `.pt` constant that will help us convert point sizes to millimeters. 
+
+```{r}
+ggplot2::.pt
+```
+
+We know that, by default, axis text is .8 times as large as the `base_size` of the theme. 
+
+Let's make a function to automate the conversion:
+
+```{r}
+ggtext_size <- function(base_size, ratio = 0.8) {
+  ratio * base_size / ggplot2::.pt
+}
+```
+
+Now we can make the label and axis text exactly the same size:
+
+```{r}
+ggplot() + 
+  stat_function(fun = dnorm, xlim = c(-4,4), geom = "area", alpha = .3) +
+  theme_minimal(base_size = textsize) + 
+  annotate(
+    geom = "text",
+    x = 0,
+    y = 0,
+    label = "Mean = 0",
+    size = ggtext_size(textsize),
+    vjust = -.3
+  )
+```
+
+For my own convenience (and possibly yours), I put `ggtext_size` function in the [WJSmisc package](https://wjschne.github.io/WJSmisc/).
+
+For more on ggplot font size matters, I found [this post](https://www.christophenicault.com/post/understand_size_dimension_ggplot2/) by Christophe Nicault to be informative.

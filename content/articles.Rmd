@@ -1,8 +1,0 @@
----
-output: html_fragment
-bibliography: ../data/My Articles.json
-nocite: "@*"
-csl: apa-cv.csl
----
-
-

@@ -1,0 +1,60 @@
+---
+title: Making text labels the same size as axis labels in ggplot2
+author: W. Joel Schneider
+date: '2021-08-10'
+slug: making-text-labels-the-same-size-as-axis-labels-in-ggplot2
+categories: []
+summary: "The geom_text and geom_label functions do not specifiy text size the same way as the rest of ggplot2 elements do. For consistent text sizes, we can apply a simple conversion."
+tags:
+  - ggplot2
+  - R
+---
+
+<script src="{{< blogdown/postref >}}index_files/header-attrs/header-attrs.js"></script>
+
+
+<p>As explained in <a href="https://ggplot2.tidyverse.org/articles/ggplot2-specs.html#font-size-1">this ggplot2 vignette</a>, the <code>size</code> parameter in <code>geom_text</code> and <code>geom_label</code> is in millimeters, and the <code>size</code> parameter in all other text elements in ggplot2 is in points.</p>
+<p>If I specify the <code>base_size</code> of the plot and the <code>size</code> of a label to 16, you can see that the text label is much bigger than 16.</p>
+<pre class="r"><code>library(tidyverse)
+textsize &lt;- 16
+ggplot() +
+  stat_function(
+    fun = dnorm,
+    xlim = c(-4, 4),
+    geom = &quot;area&quot;,
+    alpha = .3
+  ) +
+  theme_minimal(base_size = textsize) +
+  annotate(
+    geom = &quot;text&quot;,
+    x = 0,
+    y = 0,
+    label = &quot;Mean = 0&quot;,
+    size = textsize,
+    vjust = -.1
+  )</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p>If you do not mind a little trial and error, you can fiddle with the <code>size</code> parameter until you find a value that looks good to you. However, what if we want the axis text labels and the output of <code>geom_text</code> to be <em>exactly</em> the same size?</p>
+<p>We are in luck because ggplot2 has a <code>.pt</code> constant that will help us convert point sizes to millimeters.</p>
+<pre class="r"><code>ggplot2::.pt</code></pre>
+<pre><code>## [1] 2.845276</code></pre>
+<p>We know that, by default, axis text is .8 times as large as the <code>base_size</code> of the theme.</p>
+<p>Let’s make a function to automate the conversion:</p>
+<pre class="r"><code>ggtext_size &lt;- function(base_size, ratio = 0.8) {
+  ratio * base_size / ggplot2::.pt
+}</code></pre>
+<p>Now we can make the label and axis text exactly the same size:</p>
+<pre class="r"><code>ggplot() + 
+  stat_function(fun = dnorm, xlim = c(-4,4), geom = &quot;area&quot;, alpha = .3) +
+  theme_minimal(base_size = textsize) + 
+  annotate(
+    geom = &quot;text&quot;,
+    x = 0,
+    y = 0,
+    label = &quot;Mean = 0&quot;,
+    size = ggtext_size(textsize),
+    vjust = -.3
+  )</code></pre>
+<p><img src="{{< blogdown/postref >}}index_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>For my own convenience (and possibly yours), I put <code>ggtext_size</code> function in the <a href="https://wjschne.github.io/WJSmisc/">WJSmisc package</a>.</p>
+<p>For more on ggplot font size matters, I found <a href="https://www.christophenicault.com/post/understand_size_dimension_ggplot2/">this post</a> by Christophe Nicault to be informative.</p>
