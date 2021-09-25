@@ -73,6 +73,6 @@ ggplot() +
   )
 ```
 
-For my own convenience (and possibly yours), I put `ggtext_size` function in the [WJSmisc package](https://wjschne.github.io/WJSmisc/).
+For my own convenience (and possibly yours), I put the `ggtext_size` function in the [WJSmisc package](https://wjschne.github.io/WJSmisc/).
 
 For more on ggplot font size matters, I found [this post](https://www.christophenicault.com/post/understand_size_dimension_ggplot2/) by Christophe Nicault to be informative.
