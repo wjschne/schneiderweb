@@ -41,7 +41,23 @@
         {{ end }}
 
   
-  {{ end }}          
+  {{ end }}    
+  
+  
+    <h1> Web Applications </h1>
+  {{ range .Site.Taxonomies.myprojects.app }}
+        <h2><a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a></h2>
+        
+        {{ if isset .Params "image" }}
+          <p>
+            <a href="{{ .RelPermalink }}">
+              <img src={{ .Params.image}} style="width: {{ if .Params.image_width }}{{- .Params.image_width -}} {{ else }}100%{{ end }};">
+            </a>
+          </p>
+        {{ end }}
+
+  
+  {{ end }} 
 
 
       </section>
