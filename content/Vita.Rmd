@@ -191,7 +191,7 @@ title_suffix <- function(s) {
 :::{.col-md-7}
 **Temple University**  
 College of Education & Human Development  
-Ritter Annex 215  
+358 Ritter Hall  
 Philadelphia, PA 19122-6091
 :::
 
@@ -739,7 +739,7 @@ readr::read_csv("../csv/service.csv") %>%
 ```{r}
 tibble::tribble(
            ~Date,                                  ~Journal,             ~Position,
-  "2019–2021", "*Journal of Psychoeducational Assessment*",    "Associate Editor",
+  "2019–2020", "*Journal of Psychoeducational Assessment*",    "Associate Editor",
           "2015",            "*Journal of School Psychology*", "Guest Action Editor"
   ) %>% 
   mutate(across(.fns = ~str_replace_all(.x, "–", "&NoBreak;&ndash;&NoBreak;"))) %>% 
