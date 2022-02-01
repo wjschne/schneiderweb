@@ -257,8 +257,9 @@ tibble::tribble(
 
 ## Current Grant Support
 
+#. *Virtual Charter School Performance Reviews and Support [Extension]* (PI), with Christopher McGinley, Sarah Cordes, and Beth Olanaff, $480,960, Pennsylvania Department of Education [(2022–2023)]{.smalldate}.
 #. *Statistical Validation Analysis of the Functional Cattell Horn Carroll (F-CHC) Model with Measures of Intelligence* (PI), $15,000, Woodcock Institute Research Grant Award [(January 2021–July 2021)]{.smalldate}.
-#. *Virtual Charter School Performance Reviews and Support* (PI), with Christopher McGinley, Sarah Cordes, and Annemarie Hindman, $511,560, Pennsylvania Department of Education [(2020–2021)]{.smalldate}.
+#. *Virtual Charter School Performance Reviews and Support* (PI), with Christopher McGinley, Sarah Cordes, Beth Olanaff, and Annemarie Hindman, $511,560, Pennsylvania Department of Education [(2020–2021)]{.smalldate}.
 #. *GeometryByExample: Developing an Effective Intervention for Varied Geometry Content and Learner Characteristics* (Co-PI), with Julie Booth (PI), Kelly McGinn, Christina Barbieri, & M. Suzanne Donovan, $1,396,715, US Department of Education R305A190126 [(July 2019–June 2022)]{.smalldate}.
 
 ## Past Grant Support
@@ -319,7 +320,6 @@ ct <- get_citation_history(id) %>%
 
 ```{r scholarplot, dev="svg", fig.height=7, fig.width=8, fig.cap="Google Scholar Citations of My Work", out.width="800px"}
 ## Plot citation trend
-
 ggplot(ct, aes(year, cumulative_citations)) + 
   geom_step(linetype = 1, color = "gray50") + 
   geom_point(color = "gray20") +
@@ -333,7 +333,7 @@ ggplot(ct, aes(year, cumulative_citations)) +
              color = "gray30", 
              fill = "white") +
   # geom_text(aes(label = paste0("+", cites)), hjust = 0.5, vjust = -0.5, family = "Palatino Linotype", size = 4, color = "gray20") +
-  scale_x_continuous("Publication Year", minor_breaks = 2000:2021) +
+  scale_x_continuous("Publication Year", minor_breaks = 2000:2022) +
   scale_y_continuous("Cumulative Citation Count",expand = expansion(mult = c(0.02,0.052))) +
   theme_minimal(base_size = 16, base_family = "Rubik") +
   coord_cartesian(clip = 'off') +
