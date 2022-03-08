@@ -1,8 +1,7 @@
 <!doctype html><html><head>
 <meta charset=utf-8>
 <meta name=viewport content="width=device-width,initial-scale=1">
-<title>Bar chart labels on smooth paths in ggplot2 – W. Joel Schneider</title>
-<meta name=author content="W. Joel Schneider">
+<title>Bar chart labels on smooth paths in ggplot2 – W. Joel Schneider</title><meta name=author content="W. Joel Schneider">
 <meta name=description content="W. Joel Schneider's Academic Website">
 <link href=https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css rel=stylesheet integrity=sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6 crossorigin=anonymous>
 <link rel=stylesheet href=/css/all.min.css>
@@ -13,8 +12,7 @@
 <link rel=stylesheet href=/css/fonts.css>
 <link rel=icon type=image/png href=/favicon.png>
 <link href=//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css rel=stylesheet type=text/css>
-</head>
-<body data-spy=scroll data-target=#toc>
+</head><body data-spy=scroll data-target=#toc>
 <div class=container><header>
 <link rel=alternate type=application/rss+xml href=/index.xml><nav class="navbar navbar-expand-sm bg-dark navbar-dark d-flex mt-2 py-0">
 <div class=d-inline-flex>
@@ -23,65 +21,44 @@
 <a href=/ title=Home class=nav-link>
 <i class="fa fa-home"></i> </span>
 </a>
-</li>
-<li class=nav-item>
+</li><li class=nav-item>
 <a href=/posts/ title=Posts class=nav-link>
 Posts
 </a>
-</li>
-<li class=nav-item>
+</li><li class=nav-item>
 <a href=/presentations title=Presentations class=nav-link>
 Presentations
 </a>
-</li>
-<li class=nav-item>
+</li><li class=nav-item>
 <a href=/projects/ title=Projects class=nav-link>
 Projects
 </a>
-</li>
-<li class=nav-item>
+</li><li class=nav-item>
 <a href=/courses/ title=Courses class=nav-link>
 Courses
 </a>
-</li>
-<li class=nav-item>
+</li><li class=nav-item>
 <a href=/vita title=Vita class=nav-link>
 Vita
 </a>
-</li>
-<li class=nav-item>
+</li><li class=nav-item>
 <a href=/contact title="Contact Me" class=nav-link>
 <i class="fas fa-id-card"></i> </span>
 </a>
-</li>
-</ul>
-</div>
-</nav>
-</header>
-<div id=content>
+</li></ul></div></nav></header><div id=content>
 <article class=post>
 <header class=p-2>
 <div class=row>
 <div class=col-md-9>
-<h2>Bar chart labels on smooth paths in ggplot2 </h2>
-</div>
-<div class="col-md-3 text-md-end">
+<h2>Bar chart labels on smooth paths in ggplot2 </h2></div><div class="col-md-3 text-md-end">
 <span class=small>2021-07-31
 </span>
-</div>
-</div>
-<p>
+</div></div><p>
 By W. Joel Schneider
-</p>
-</header>
-<div class="bg-light p-2">
-<h2>Summary</h3>Placing stacked bar chart labels on a smooth path makes them easier to compare.</div>
-<section class=body>
+</p></header><div class="bg-light p-2">
+<h2>Summary</h3>Placing stacked bar chart labels on a smooth path makes them easier to compare.</div><section class=body>
 <script src=/posts/bar-chart-labels-on-smooth-paths-in-ggplot2/index_files/header-attrs/header-attrs.js></script>
-<p>This trick takes a lot of work. I only use it when I need a plot to look its best.</p>
-<p>Suppose I have a Likert questionnaire item with responses ranging from <em>Strongly Disagree</em> to <em>Strongly Agree</em>. Let’s say I have many groups in my study (e.g., college majors), and I want to compare their responses to the item.</p>
-<p>First I will create fake data for 26 groups, A–Z.</p>
-<pre class=r><code>library(extrafont)
+<p>This trick takes a lot of work. I only use it when I need a plot to look its best.</p><p>Suppose I have a Likert questionnaire item with responses ranging from <em>Strongly Disagree</em> to <em>Strongly Agree</em>. Let’s say I have many groups in my study (e.g., college majors), and I want to compare their responses to the item.</p><p>First I will create fake data for 26 groups, A–Z.</p><pre class=r><code>library(extrafont)
 library(tidyverse)
 myfont &lt;- &quot;Roboto Condensed&quot;
 
@@ -98,9 +75,7 @@ d &lt;- tibble(Group = LETTERS[1:26],
   group_by(Group) %&gt;% 
   arrange(Group, Agree) %&gt;% 
   mutate(p = n / sum(n)) %&gt;% 
-  ungroup()</code></pre>
-<p>Here is a first attempt at displaying the groups:</p>
-<pre class=r><code>d %&gt;% 
+  ungroup()</code></pre><p>Here is a first attempt at displaying the groups:</p><pre class=r><code>d %&gt;% 
   ggplot(mapping = aes(p, Group)) + 
   geom_col(aes(fill = fct_rev(Agree))) + 
   scale_fill_viridis_d(NULL, begin = .15, end = 0.8, direction = -1) +
@@ -110,10 +85,7 @@ d &lt;- tibble(Group = LETTERS[1:26],
   geom_text(aes(x = p, label = round(100 * p, 0)), 
             color = &quot;white&quot;,
             family = myfont,
-            position = position_stack(vjust = .5))</code></pre>
-<p><img src=/posts/bar-chart-labels-on-smooth-paths-in-ggplot2/index_files/figure-html/unnamed-chunk-2-1.svg width=672></p>
-<p>Not bad, but it would look better if we sorted the groups. We have many sorting options. One is that we can convert the Likert scale to numeric and then sort by the group with the highest mean.</p>
-<pre class=r><code>d %&gt;%  
+            position = position_stack(vjust = .5))</code></pre><p><img src=/posts/bar-chart-labels-on-smooth-paths-in-ggplot2/index_files/figure-html/unnamed-chunk-2-1.svg width=672></p><p>Not bad, but it would look better if we sorted the groups. We have many sorting options. One is that we can convert the Likert scale to numeric and then sort by the group with the highest mean.</p><pre class=r><code>d %&gt;%  
   mutate(Group = fct_reorder(Group, .x = as.numeric(Agree) * p, .fun = mean)) %&gt;% 
   ggplot(mapping = aes(p, Group)) + 
   geom_col(aes(fill = fct_rev(Agree))) + 
@@ -124,10 +96,7 @@ d &lt;- tibble(Group = LETTERS[1:26],
   geom_text(aes(x = p, label = round(100 * p, 0)), 
             color = &quot;white&quot;,
             family = myfont,
-            position = position_stack(vjust = .5))</code></pre>
-<p><img src=/posts/bar-chart-labels-on-smooth-paths-in-ggplot2/index_files/figure-html/unnamed-chunk-3-1.svg width=672></p>
-<p>If I wanted to sort by the “Strongly Agree” category (or any other category):</p>
-<pre class=r><code>d %&gt;%  
+            position = position_stack(vjust = .5))</code></pre><p><img src=/posts/bar-chart-labels-on-smooth-paths-in-ggplot2/index_files/figure-html/unnamed-chunk-3-1.svg width=672></p><p>If I wanted to sort by the “Strongly Agree” category (or any other category):</p><pre class=r><code>d %&gt;%  
   mutate(Group = fct_reorder(Group, .x = (Agree == &quot;Strongly\nAgree&quot;) * p, .fun = mean)) %&gt;% 
   ggplot(mapping = aes(p, Group)) + 
   geom_col(aes(fill = fct_rev(Agree))) + 
@@ -138,10 +107,7 @@ d &lt;- tibble(Group = LETTERS[1:26],
   geom_text(aes(x = p, label = round(100 * p, 0)), 
             color = &quot;white&quot;,
             family = myfont,
-            position = position_stack(vjust = .5))</code></pre>
-<p><img src=/posts/bar-chart-labels-on-smooth-paths-in-ggplot2/index_files/figure-html/unnamed-chunk-4-1.svg width=672></p>
-<p>Either way, these plots look pretty good. However, I wish that the percentage labels were placed in a more aesthetically pleasing way. I am going to group by each of the response categories and then create a loess regression equation to smooth out the placement. It will mean that the labels are no longer centered in the stacked bars, but I think the sacrifice is worth it. I think that the percentage values are much easier to compare because the eye can follow the smooth line of labels.</p>
-<pre class=r><code>d &lt;- tibble(Group = LETTERS[1:26],
+            position = position_stack(vjust = .5))</code></pre><p><img src=/posts/bar-chart-labels-on-smooth-paths-in-ggplot2/index_files/figure-html/unnamed-chunk-4-1.svg width=672></p><p>Either way, these plots look pretty good. However, I wish that the percentage labels were placed in a more aesthetically pleasing way. I am going to group by each of the response categories and then create a loess regression equation to smooth out the placement. It will mean that the labels are no longer centered in the stacked bars, but I think the sacrifice is worth it. I think that the percentage values are much easier to compare because the eye can follow the smooth line of labels.</p><pre class=r><code>d &lt;- tibble(Group = LETTERS[1:26],
        mu = rnorm(26, 0, .5),
        sigma = 1) %&gt;% 
   mutate(x = pmap(list(mean = mu, sd = sigma), rnorm, n = 500)) %&gt;% 
@@ -202,12 +168,7 @@ d %&gt;%
     reverse = T, # Reverse order of legend
     label.position = &quot;top&quot;, # Put text atop keys
     keyheight = unit(15, &quot;mm&quot;), # Size of legend rectangles
-    keywidth = unit(22.56, &quot;mm&quot;))) </code></pre>
-<p><img src=/posts/bar-chart-labels-on-smooth-paths-in-ggplot2/index_files/figure-html/unnamed-chunk-5-1.svg width=672></p>
-</section>
-</article>
-</div>
-<footer>
+    keywidth = unit(22.56, &quot;mm&quot;))) </code></pre><p><img src=/posts/bar-chart-labels-on-smooth-paths-in-ggplot2/index_files/figure-html/unnamed-chunk-5-1.svg width=672></p></section></article></div><footer>
 <nav class="nav navbar-expand-md bg-dark navbar-dark my-1">
 <ul class=navbar-nav>
 <li class=nav-item>
@@ -215,75 +176,59 @@ d %&gt;%
 <i class="far fa-envelope" title=Email> </i>
 <span class="d-inline d-md-none">Email</span>
 </a>
-</li>
-<li class=nav-item>
+</li><li class=nav-item>
 <a href=/media/schneider-vita.pdf class=nav-link target=_blank>
 <i class="ai ai-cv" title="Curriculum Vitae"> </i>
 <span class="d-inline d-md-none">Curriculum Vitae</span>
 </a>
-</li>
-<li class=nav-item>
+</li><li class=nav-item>
 <a href=https://www.researchgate.net/profile/W-Schneider-3 class=nav-link target=_blank>
 <i class="ai ai-researchgate" title=ResearchGate> </i>
 <span class="d-inline d-md-none">ResearchGate</span>
 </a>
-</li>
-<li class=nav-item>
+</li><li class=nav-item>
 <a href="https://scholar.google.com/citations?hl=en&pli=1&user=aojOxP4AAAAJ" class=nav-link target=_blank>
 <i class="ai ai-google-scholar" title="Google Scholar"> </i>
 <span class="d-inline d-md-none">Google Scholar</span>
 </a>
-</li>
-<li class=nav-item>
+</li><li class=nav-item>
 <a href=https://orcid.org/0000-0002-8393-5316 class=nav-link target=_blank>
 <i class="ai ai-orcid" title=Orchid> </i>
 <span class="d-inline d-md-none">Orchid</span>
 </a>
-</li>
-<li class=nav-item>
+</li><li class=nav-item>
 <a href=https://osf.io/whabf/ class=nav-link target=_blank>
 <i class="ai ai-osf" title="Open Science Framework"> </i>
 <span class="d-inline d-md-none">Open Science Framework</span>
 </a>
-</li>
-<li class=nav-item>
+</li><li class=nav-item>
 <a href=https://www.zotero.org/wjschne class=nav-link target=_blank>
 <i class="ai ai-zotero" title=Zotero> </i>
 <span class="d-inline d-md-none">Zotero</span>
 </a>
-</li>
-<li class=nav-item>
+</li><li class=nav-item>
 <a href=https://github.com/wjschne class=nav-link target=_blank>
 <i class="fab fa-github" title=GitHub> </i>
 <span class="d-inline d-md-none">GitHub</span>
 </a>
-</li>
-<li class=nav-item>
+</li><li class=nav-item>
 <a href=https://stackoverflow.com/users/4513316/joel-schneider class=nav-link target=_blank>
 <i class="ai ai-stackoverflow" title=stackoverflow> </i>
 <span class="d-inline d-md-none">stackoverflow</span>
 </a>
-</li>
-<li class=nav-item>
+</li><li class=nav-item>
 <a href=https://twitter.com/WJoelSchneider class=nav-link target=_blank>
 <i class="fab fa-twitter" title=Twitter> </i>
 <span class="d-inline d-md-none">Twitter</span>
 </a>
-</li>
-<li class=nav-item>
+</li><li class=nav-item>
 <a href=https://www.youtube.com/channel/UCFTUraTjxq743KfH-5gWrWg class=nav-link target=_blank>
 <i class="fab fa-youtube" title=YouTube> </i>
 <span class="d-inline d-md-none">YouTube</span>
 </a>
-</li>
-</ul>
-</nav>
-<p class=text-end>
+</li></ul></nav><p class=text-end>
 <i class="fas fa-copyright"> </i> 2022
-</p>
-</footer>
-</div>
-<script src=https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js></script>
+</p></footer></div><script src=https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js></script>
 <script src=https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js></script>
 <script src=https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js></script>
 <script src=//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js></script>
@@ -295,5 +240,4 @@ d %&gt;%
 <script src=https://code.jquery.com/jquery-3.4.1.min.js></script>
 <script src=https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js></script>
 <script src=https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js></script>
-</body>
-</html>
+</body></html>
