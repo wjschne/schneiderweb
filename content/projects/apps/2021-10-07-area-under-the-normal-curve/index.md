@@ -5,7 +5,6 @@ myprojects: [app]
 image: "/images/areaundercurve.png"
 image_width: 500px
 alt_text: "2021 10 07 Area Under the Normal Curve screenshot"
-summary: "Summary of the 2021 10 07 Area Under the Normal Curve project"
 tech_used:
   - R
   - shiny
