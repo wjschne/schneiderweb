@@ -2,7 +2,7 @@
 title: "Conditional Positive Predictive Value for Specific Learning Disabilities"
 draft: false
 myprojects: [app]
-image: "/images/conditionalppv.png"
+image: "/images/conditionalppv.svg"
 image_width: 500px
 alt_text: "2022 03 08 Conditional Positive Predictive Value for Specific Learning Disabilities screenshot"
 summary: "Summary of the 2022 03 08 Conditional Positive Predictive Value for Specific Learning Disabilities project"
