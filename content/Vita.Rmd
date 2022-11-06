@@ -170,7 +170,7 @@ na2emph <- function(s) {
 
 na2link <- function(s, href, prefix = "", suffix = ".") {
   ifelse(is.na(href), 
-         na2empty(s), 
+         paste0(na2empty(s), suffix), 
          glue::glue('{prefix}<a target="_blank" href="{href}">{s}</a>{suffix}'))
   }
 
@@ -257,12 +257,14 @@ tibble::tribble(
 
 ## Current Grant Support
 
-#. *Virtual Charter School Performance Reviews and Support [Extension]* (PI), with Christopher McGinley, Sarah Cordes, and Beth Olanaff, $480,960, Pennsylvania Department of Education [(2022–2023)]{.smalldate}.
-#. *Statistical Validation Analysis of the Functional Cattell Horn Carroll (F-CHC) Model with Measures of Intelligence* (PI), $15,000, Woodcock Institute Research Grant Award [(January 2021–July 2021)]{.smalldate}.
-#. *Virtual Charter School Performance Reviews and Support* (PI), with Christopher McGinley, Sarah Cordes, Beth Olanaff, and Annemarie Hindman, $511,560, Pennsylvania Department of Education [(2020–2021)]{.smalldate}.
-#. *GeometryByExample: Developing an Effective Intervention for Varied Geometry Content and Learner Characteristics* (Co-PI), with Julie Booth (PI), Kelly McGinn, Christina Barbieri, & M. Suzanne Donovan, $1,396,715, US Department of Education R305A190126 [(July 2019–June 2022)]{.smalldate}.
+#. *Virtual Charter School Performance Reviews and Support [Extension]* (PI), with Christopher McGinley, Sarah Cordes, and Beth Olanoff, $480,960, Pennsylvania Department of Education [(2022–2023)]{.smalldate}.
+
 
 ## Past Grant Support
+
+#. *Statistical Validation Analysis of the Functional Cattell Horn Carroll (F-CHC) Model with Measures of Intelligence* (PI), $15,000, Woodcock Institute Research Grant Award [(January 2021–July 2021)]{.smalldate}.
+#. *GeometryByExample: Developing an Effective Intervention for Varied Geometry Content and Learner Characteristics* (Co-PI), with Julie Booth (PI), Kelly McGinn, Christina Barbieri, & M. Suzanne Donovan, $1,396,715, US Department of Education R305A190126 [(July 2019–June 2022)]{.smalldate}.
+#. *Virtual Charter School Performance Reviews and Support* (PI), with Christopher McGinley, Sarah Cordes, Beth Olanaff, and Annemarie Hindman, $511,560, Pennsylvania Department of Education [(2020–2021)]{.smalldate}.
 #. *The Roots and Fruits of Positive School Climate: A Multilevel Examination of School Climate’s Mediating Role in the Relations Among Student Risk Factors and Student Performance Outcomes* (Co-PI), with  Laura Pendergast (PI) and Armando Estrada, $3000, Pennsylvania Department of Education [(2018–2019)]{.smalldate}.
 #. *Development of the Compositator* (PI), $11,000, Woodcock-Muñoz Foundation (2008–2010)
 #. *Exploring the Impact of Cognitive Abilities on Behavior Problems* (PI), $2500, Illinois State University [(2005)]{.smalldate}
@@ -278,7 +280,9 @@ j <- d_pubs  %>%
   filter(!(journal %in% c("Handbook of educational theories", 
                           "Human Intelligence: An Introduction",
                           "Scientific American",
+                          "Contemporary intellectual assessment: Theories, tests, and issues",
                           "Clinical handbook of couple therapy",
+                          "Human intelligence: An introduction",
                           "WJ IV clinical use and interpretation",
                           "Best practices in school psychology V",
                           "Institute for Applied Psychometrics (IAP)",
@@ -288,18 +292,21 @@ j <- d_pubs  %>%
   pull(journal) %>% 
   unique 
 
-d_impact <- scholar::get_impactfactor(j) %>% 
-  filter(!is.na(Journal)) %>% 
-  mutate(linkJournal = str_to_lower(Journal))
+# d_impact <- scholar::get_impactfactor(j) %>% 
+#   filter(!is.na(Journal)) %>% 
+#   mutate(linkJournal = str_to_lower(Journal))
+# 
+# d_impact <- scholar::get_journalrank(j) |> 
+#   filter(Type == "journal")
 
 
 d_pubs_link <- d_pubs %>% 
   mutate(linkJournal = str_to_lower(journal)) %>% 
-  left_join(d_impact %>% select(-Journal, -Cites), by = "linkJournal") %>% 
+  # left_join(d_impact %>% select(-Journal, -Cites), by = "linkJournal") %>% 
   select(-linkJournal) %>% 
   arrange(desc(year)) %>% 
   as_tibble() %>% 
-  select(title, author, year, cites, ImpactFactor) %>% 
+  select(title, author, year, cites) %>% 
   unique 
 
 
@@ -373,6 +380,7 @@ jsonlite::read_json("../data/My Books.json", simplifyVector = T) %>%
   pull(citation) %>% 
   cat
 
+
 ```
 
 ## Journal Articles
@@ -409,7 +417,7 @@ jsonlite::read_json("../data/My Articles.json", simplifyVector = T) %>%
 jsonlite::read_json("../data/My Chapters.json", simplifyVector = T) %>% 
   rename(book = `container-title`,
          year = issued) %>% 
-  as_tibble() %>%
+  as_tibble() %>% 
   mutate(year = flatten(year) %>% as.integer(),
          author = make_authors(author),
          editor = make_editors(editor),
@@ -422,7 +430,7 @@ jsonlite::read_json("../data/My Chapters.json", simplifyVector = T) %>%
          volume = na2empty(volume, paste0("Vol. ", volume, ", ")),
          title = na2link(title, 
                          URL, 
-                         suffix = title_suffix(title))) %>%  
+                         suffix = title_suffix(title)))  %>%   
   left_join(d_pubs %>% select(pubid, cites, cid), by = "pubid") %>% 
   mutate(citations = make_citation_button(cites, cid, year)) %>% 
   mutate(citation = glue::glue(
@@ -437,8 +445,6 @@ jsonlite::read_json("../data/My Chapters.json", simplifyVector = T) %>%
 ## Test Reviews
 
 ```{r testreviews, results='asis'}
-
-
 jsonlite::read_json("../data/My Testreviews.json", simplifyVector = T) %>% 
   rename(book = `container-title`,
          year = issued) %>% 
@@ -535,7 +541,7 @@ jsonlite::read_json("../data/My Talks.json", simplifyVector = T) %>%
          ) %>% 
   mutate(title = paste0(title, chair, `container-title`) %>% str_replace_all("\\.\\.", ".")) %>% 
   mutate(citation = glue::glue(
-    '<div class="csl-entry">{author} ({date}). {title} [{genre}]. {event}, {`event-place`}.   {URL}</div>')) %>% 
+    '<div class="csl-entry">{author} ({date}). {title} [{genre}]. {`event-title`}, {`event-place`}.   {URL}</div>')) %>% 
  arrange(-year, -month, -day, author) %>% 
   pull(citation) %>% 
   paste0(collapse = "\n") %>% 
@@ -557,7 +563,7 @@ jsonlite::read_json("../data/My Posters.json", simplifyVector = T) %>%
          URL = na2empty(URL)
          ) %>% 
   mutate(citation = glue::glue(
-    '<div class="csl-entry">{author} ({date}). <em>{title}</em> [{genre}]. {event}, {`event-place`}.   {URL}</div>')) %>% 
+    '<div class="csl-entry">{author} ({date}). <em>{title}</em> [{genre}]. {`event-title`}, {`event-place`}.   {URL}</div>')) %>% 
  arrange(-year, -month, -day, author) %>% 
   pull(citation) %>% 
   paste0(collapse = "\n") %>% 
