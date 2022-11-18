@@ -774,7 +774,7 @@ tibble::tribble(
 *	Member, National Association of School Psychologists
 
 
-## Disclosure of Financial Conflicts of Interest 
+# Financial Conflicts of Interest Disclosure
 
 * For the year 2022, I am an external adviser for Pearson Clinical Assessment's Scientific Council. For my time, I receive an honorarium. 
 * I received payment for ad hoc consulting services from Riverside Insights and ATP Assessment.
