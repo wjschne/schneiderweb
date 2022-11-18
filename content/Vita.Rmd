@@ -182,7 +182,7 @@ title_suffix <- function(s) {
 }
 ```
 
-# [Curriculum Vitae]{.smallcaps}
+# [Curriculum Vitae]{.smallcaps style='letter-spacing: 3px;'}
 
 ## W. Joel Schneider
 
