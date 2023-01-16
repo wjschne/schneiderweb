@@ -325,7 +325,7 @@ ct <- get_citation_history(id) %>%
 * h-index: `r l$h_index`
 * i10-index: `r l$i10_index`
 
-```{r scholarplot, dev="svg", fig.height=7, fig.width=8, fig.cap="Google Scholar Citations of My Work", out.width="800px"}
+```{r scholarplot, dev="svg", fig.height=8, fig.width=8, fig.cap="Google Scholar Citations of My Work", out.width="800px"}
 ## Plot citation trend
 ggplot(ct, aes(year, cumulative_citations)) + 
   geom_step(linetype = 1, color = "gray50") + 
@@ -336,11 +336,10 @@ ggplot(ct, aes(year, cumulative_citations)) +
              label.size = 0, 
              label.padding = unit(0,"pt"), 
              family = "Rubik", 
-             size = 4.5, 
+             size = 4.2, 
              color = "gray30", 
              fill = "white") +
-  # geom_text(aes(label = paste0("+", cites)), hjust = 0.5, vjust = -0.5, family = "Palatino Linotype", size = 4, color = "gray20") +
-  scale_x_continuous("Publication Year", minor_breaks = 2000:2022) +
+  scale_x_continuous("Publication Year", minor_breaks = 2000:2025) +
   scale_y_continuous("Cumulative Citation Count",expand = expansion(mult = c(0.02,0.052))) +
   theme_minimal(base_size = 16, base_family = "Rubik") +
   coord_cartesian(clip = 'off') +
