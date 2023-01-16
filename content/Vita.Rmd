@@ -245,7 +245,7 @@ tibble::tribble(
               NA, "**Department of Mental Hygiene**",                                NA,
               NA,                 "Poughkeepsie, NY",                                NA
   ) %>% 
-  mutate(across(.fns = ~str_replace_all(.x, "–", "&NoBreak;&ndash;&NoBreak;"))) %>% 
+  mutate(across(everything(),.fns = ~str_replace_all(.x, "–", "&NoBreak;&ndash;&NoBreak;"))) %>% 
   knitr::kable(format = "html", align = "lll", escape = F, col.names = NULL) %>% 
   html_table_width(width = c("20%", "40%", "40%"), class = "align-top w-100")
 
