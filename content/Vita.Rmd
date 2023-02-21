@@ -158,6 +158,9 @@ make_chairs <- function(d) {
     
 }
 
+doi2link <- function(s) {
+  ifelse(is.na(s) | s == "", "", paste0("https://doi.org/", s, " "))
+}
 
 
 na2empty <- function(s, s_additional = s) {
@@ -392,7 +395,7 @@ jsonlite::read_json("../data/My Articles.json", simplifyVector = T) %>%
   mutate(year = flatten(year) %>% map(`[[`, 1) %>% as.integer(),
          author = make_authors(author),
          title = na2link(title, 
-                         href = paste0("https://doi.org/", DOI), 
+                         href = URL, 
                          suffix = title_suffix(title)),
          pubid = str_remove(note, "pubid:"),
          issue = na2empty(issue, paste0("(", issue, ")")),
@@ -400,7 +403,7 @@ jsonlite::read_json("../data/My Articles.json", simplifyVector = T) %>%
          volume = ifelse(is.na(volume), "", paste0(", ", volume))) %>% 
   left_join(d_pubs %>% select(pubid, cites, cid), by = "pubid") %>% 
   mutate(citations = make_citation_button(cites, cid, year)) %>% 
-  mutate(citation = glue::glue('<div class="csl-entry">{author} ({year}). {title} <em>{journal}{volume}</em>{issue}, {page}. {citations}</div>')) %>% 
+  mutate(citation = glue::glue('<div class="csl-entry">{author} ({year}). {title} <em>{journal}{volume}</em>{issue}, {page}. {doi2link(DOI)}{citations}</div>')) %>% 
  arrange(-year, author) %>%  
   pull(citation) %>% 
   str_replace("\\. ,", ".") %>% 
@@ -433,7 +436,7 @@ jsonlite::read_json("../data/My Chapters.json", simplifyVector = T) %>%
   left_join(d_pubs %>% select(pubid, cites, cid), by = "pubid") %>% 
   mutate(citations = make_citation_button(cites, cid, year)) %>% 
   mutate(citation = glue::glue(
-    '<div class="csl-entry">{author} ({year}). {title} In {editor} <em>{book}</em> ({volume}{edition}pp. {page}). {publisher}. {citations} </div>')) %>% 
+    '<div class="csl-entry">{author} ({year}). {title} In {editor} <em>{book}</em> ({volume}{edition}pp. {page}). {publisher}. {doi2link(DOI)}{citations} </div>')) %>% 
  arrange(-year, author) %>% 
   pull(citation) %>% 
   cat
@@ -607,8 +610,13 @@ jsonlite::read_json("../data/My Posters.json", simplifyVector = T) %>%
 
 #### Temple University
 
-*	Justin Harper
+* Megan Barone
+* Tiffany Thompson
+* Randy Taylor
+* Lance McCoy
 *	Stephanie Iaccarino (co-chair)
+*	Justin Harper [(2022)]{.smalldate}
+
 
 #### Illinois State University
 
@@ -621,8 +629,11 @@ jsonlite::read_json("../data/My Posters.json", simplifyVector = T) %>%
 #### Temple University
 
 *	Codie Kane
+* Valerie Woxholt
+* Emunah Mager-Garfield
 *	Denae Sisco
-* Shana Levi-Nielsen
+* Patrick Clancy
+* Shana Levi-Nielsen [(2022)]{.smalldate}
 * Kaiyla Darmer [(2022)]{.smalldate}
 *	Kathryn DeVries [(2022)]{.smalldate}
 *	Tera Gibbs [(2022)]{.smalldate}
@@ -642,6 +653,12 @@ jsonlite::read_json("../data/My Posters.json", simplifyVector = T) %>%
 *	Katherine A. Gioia [(2009)]{.smalldate}
 *	Sarah Reck [(2008)]{.smalldate}
 *	Anna C. Bodner [(2005)]{.smalldate}
+
+#### External Reviewer 
+
+* Brianna Paul [(2022) Texas Women's University]{.smalldate}
+* Jake Blair Kraska [(2021) Monash University]{.smalldate}
+* Paul Jewsbury [(2014) University of Melbourne]{.smalldate}
 
 ### Master's Thesis Chair
 
@@ -692,7 +709,7 @@ jsonlite::read_json("../data/My Posters.json", simplifyVector = T) %>%
 # Service
 
 
-```{r, results="asis", message=FALSE}
+```{r service, results="asis", message=FALSE}
 
 make_service <- function(L2, L3, data) {
   if (L2 != "") cat(paste0("\n\n## ", L2, "\n\n"))
@@ -723,7 +740,7 @@ readr::read_csv("../csv/service.csv") %>%
 
 ## Editorial Positions
 
-```{r}
+```{r editorialpositions}
 tibble::tribble(
            ~Date,                                  ~Journal,             ~Position,
   "2019–2020", "*Journal of Psychoeducational Assessment*",    "Associate Editor",
@@ -775,7 +792,7 @@ tibble::tribble(
 
 # Financial Conflicts of Interest Disclosure
 
-* For the year 2022, I am an external adviser for Pearson Clinical Assessment's Scientific Council. For my time, I receive an honorarium. 
+* For the year 2022, I was an external adviser for Pearson Clinical Assessment's Scientific Council. For my time, I received an honorarium. 
 * I received payment for ad hoc consulting services from Riverside Insights and ATP Assessment.
 * I receive royalties for book sales and for a webinar I gave for Kids, Inc.
 
