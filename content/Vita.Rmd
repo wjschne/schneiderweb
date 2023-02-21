@@ -248,9 +248,20 @@ tibble::tribble(
               NA, "**Department of Mental Hygiene**",                                NA,
               NA,                 "Poughkeepsie, NY",                                NA
   ) %>% 
-  mutate(across(everything(),.fns = ~str_replace_all(.x, "–", "&NoBreak;&ndash;&NoBreak;"))) %>% 
-  knitr::kable(format = "html", align = "lll", escape = F, col.names = NULL) %>% 
-  html_table_width(width = c("20%", "40%", "40%"), class = "align-top w-100")
+  mutate(across(
+    everything(),
+    .fns = ~ str_replace_all(.x,
+                             "–",
+                             "&NoBreak;&ndash;&NoBreak;")
+  )) %>%
+  knitr::kable(
+    format = "html",
+    align = "lll",
+    escape = F,
+    col.names = NULL
+  ) %>%
+  html_table_width(width = c("20%", "40%", "40%"), 
+                   class = "align-top w-100")
 
 
 ```
@@ -716,7 +727,10 @@ make_service <- function(L2, L3, data) {
   if (!is.na(L3)) cat(paste0("\n\n### ", L3, "\n\n"))
   
   data %>% 
-  mutate(across(.fns = ~str_replace_all(.x, "–", "&NoBreak;&ndash;&NoBreak;"))) %>% 
+  mutate(across(.cols = everything(),
+                .fns = ~str_replace_all(.x, 
+                                        "–", 
+                                        "&NoBreak;&ndash;&NoBreak;"))) %>% 
     mutate(Date = str_replace_all(Date, "-", "&ndash;")) %>% 
   knitr::kable(format = "html", align = "lll", escape = F, col.names = NULL) %>% 
   html_table_width(width = c("20%", "80%"), class = "align-top w-100") %>% 
@@ -746,7 +760,10 @@ tibble::tribble(
   "2019–2020", "*Journal of Psychoeducational Assessment*",    "Associate Editor",
           "2015",            "*Journal of School Psychology*", "Guest Action Editor"
   ) %>% 
-  mutate(across(.fns = ~str_replace_all(.x, "–", "&NoBreak;&ndash;&NoBreak;"))) %>% 
+  mutate(across(.cols = everything(),
+                .fns = ~str_replace_all(.x, 
+                                        "–", 
+                                        "&NoBreak;&ndash;&NoBreak;"))) %>% 
   knitr::kable(format = "html", align = "lll", escape = F, col.names = NULL) %>% 
   html_table_width(width = c("20%", "45%", "35%"), class = "align-top w-100")
 
@@ -766,7 +783,10 @@ tibble::tribble(
       "2009–2018",                "*Psychological Assessment*",   "Consulting Editor",
       "1997–2000",             "*Clinician's Research Digest*", "Editorial Associate"
   ) %>% 
-  mutate(across(.fns = ~str_replace_all(.x, "–", "&NoBreak;&ndash;&NoBreak;"))) %>% 
+  mutate(across(.cols = everything(),
+                .fns = ~str_replace_all(.x, 
+                                        "–", 
+                                        "&NoBreak;&ndash;&NoBreak;"))) %>% 
   knitr::kable(format = "html", align = "lll", escape = F, col.names = NULL) %>% 
   html_table_width(width = c("20%", "45%", "35%"), class = "align-top w-100")
 
