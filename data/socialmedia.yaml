@@ -26,9 +26,9 @@ accounts:
   - name: stackoverflow
     url: "https://stackoverflow.com/users/4513316/joel-schneider"
     icon: ai ai-stackoverflow
-  - name: Twitter
-    url: "https://twitter.com/WJoelSchneider"
-    icon: fab fa-twitter
+  - name: Mastodon
+    url: "https://fosstodon.org/@wjoelschneider"
+    icon: fab fa-mastodon
   - name: YouTube
     url: "https://www.youtube.com/channel/UCFTUraTjxq743KfH-5gWrWg"
     icon: fab fa-youtube
