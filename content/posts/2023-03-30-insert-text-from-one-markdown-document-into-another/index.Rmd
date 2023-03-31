@@ -16,7 +16,7 @@ A function for retrieving a div or span from another markdown document
 
 While assembling a reply letter for a revise-and-resubmit document, I was documenting for reviewers how we addressed their concerns. The reply letter quoted numerous sentences and paragraphs that had been changed. Unfortunately, each time my co-authors and I edited the paper, I lost track of which sentences and paragraphs I had previously copied into the reply letter. I did not want to misquote my own paper.
 
-Copying-and-pasting with each edit was getting tedious and it was an error-prone process. I decided to write a simple function that would retrieve a named div or span from the paper and print it as a quote in my reply letter. Here it is:
+Copying-and-pasting with each edit was getting tedious, and it was an error-prone process. I decided to write a simple function that would retrieve a named div or span from the paper and print it as a quote in my reply letter. Here it is:
 
 ```{r}
 get_quote <- function(id, file, blockquote = TRUE) {
@@ -76,6 +76,8 @@ Here are two pagagraphs in a fenced div.
 
 This is the second paragraph.
 :::
+
+cat(get_quote("id2", "index.Rmd"))
 ```
 
 You can pull text from the current file or another file. This file happened to be named `index.Rmd`. The text inside the span with id "#id1" can be extracted with inline chunks like so:
@@ -96,7 +98,7 @@ Here we extract the two paragraphs in div id2
 
 ## Remove blockquote formatting
 
-You can turn off the blockquote formatting like so:
+By default, the function adds a `> ` before each line in the quoted markdown so that it appears as a block quote. You can turn off the block quote formatting like so:
 
 ```{verbatim}
 `r get_quote("id1", "index.Rmd", blockquote = FALSE)`
