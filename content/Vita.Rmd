@@ -625,7 +625,7 @@ jsonlite::read_json("../data/My Posters.json", simplifyVector = T) %>%
 * Megan Barone
 * Tiffany Thompson
 * Randy Taylor
-* Lance McCoy
+* Bernard Dillard
 *	Stephanie Iaccarino (co-chair)
 *	Justin Harper [(2022)]{.smalldate}
 
@@ -640,11 +640,11 @@ jsonlite::read_json("../data/My Posters.json", simplifyVector = T) %>%
 
 #### Temple University
 
-*	Codie Kane
 * Valerie Woxholt
 * Emunah Mager-Garfield
 *	Denae Sisco
-* Patrick Clancy
+*	Codie Kane [(2023)]{.smalldate}
+* Patrick Clancy [(2023)]{.smalldate}
 * Shana Levi-Nielsen [(2022)]{.smalldate}
 * Kaiyla Darmer [(2022)]{.smalldate}
 *	Kathryn DeVries [(2022)]{.smalldate}
