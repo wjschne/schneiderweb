@@ -194,6 +194,7 @@ title_suffix <- function(s) {
 :::{.col-md-7}
 **Temple University**  
 College of Education & Human Development  
+Psychological Studies in Education  
 358 Ritter Hall  
 Philadelphia, PA 19122-6091
 :::

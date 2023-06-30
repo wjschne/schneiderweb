@@ -1,4 +1,4 @@
-baseurl: "/"
+baseurl: "https://wjschne.github.io/"
 canonifyurls: true
 languageCode: en-us
 title: "W. Joel Schneider"
@@ -53,3 +53,8 @@ taxonomies:
   tag: tags
   myproject: myprojects
 
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true

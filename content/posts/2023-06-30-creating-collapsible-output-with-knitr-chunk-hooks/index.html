@@ -1,0 +1,92 @@
+---
+title: Creating collapsible output with knitr chunk hooks
+author: W. Joel Schneider
+date: '2023-06-30'
+slug: creating-collapsible-output-with-knitr-chunk-hooks
+categories:
+  - knitr
+tags:
+  - R
+  - knitr hooks
+draft: no
+summary: "How to make the output of a knitr code chunk collapsible using knitr hooks."
+---
+
+
+
+<p>I am writing a <a href="https://individual-psychometrics.rbind.io/">(still very much unfinished) psychometrics book</a> with suggested exercises using R. I wanted to provide solutions to the questions, but I wanted to hide the answers until the reader clicks them.</p>
+<p>An easy way to create collapsible content is with html’s <code>&lt;details&gt;</code> tag. For example:</p>
+<pre class="default"><code>Create a variable `x`, and assign it a value of 5.
+
+&lt;details&gt;
+  &lt;summary&gt;Suggested Solution&lt;/summary&gt;
+
+```{r}
+x &lt;- 5
+```
+&lt;/details&gt;</code></pre>
+<p>Create a variable <code>x</code>, and assign it a value of 5.</p>
+<details>
+<summary>
+Suggested Solution
+</summary>
+<pre class="r"><code>x &lt;- 5</code></pre>
+</details>
+<hr>
+<p>However, I did not want to worry about all the <code>&lt;details&gt;</code> every time I wrote a question. To automate this process, I used two knitr hooks: a chunk hook and an option hook.</p>
+<p><a href="https://bookdown.org/yihui/rmarkdown-cookbook/chunk-hooks.html">Chunk hooks</a> are for customizing the output of a chunk.</p>
+<p>Here I create a new chunk hook that is run before and after the chunk. When it is run before the chunk, it adds the <code>&lt;details&gt;</code> and <code>&lt;summary&gt;</code> tags. After the chunk, it closes the <code>&lt;details&gt;</code> tag.</p>
+<pre class="r"><code># Add the details tag before running the chunk 
+# and close the tag after running the chunk.
+knitr::knit_hooks$set(
+  solutionsetter = function(before,options) {
+  
+  if (before) {
+    
+    &quot;\n\n&lt;details&gt;&lt;summary&gt;Suggested Solution&lt;/summary&gt;\n\n&quot;
+    
+  } else {
+    
+    &quot;\n\n&lt;/details&gt;\n\n&quot;
+    
+  }
+})</code></pre>
+<p>If all we needed to do was to enclose the output into a <code>&lt;details&gt;</code> tag, then just the <code>solutionsetter</code> hook would be needed. However, I also wanted to set <code>echo=TRUE</code> so that the output would be visible even if the default for <code>echo</code> was <code>FALSE</code>.</p>
+<p><a href="https://bookdown.org/yihui/rmarkdown-cookbook/option-hooks.html">Option hooks</a> are great for when you have a kind of chunk you will use often, and it requires setting many chunk options at once (e.g., a plot variant with different dimensions than your default plot has).</p>
+<p>Here I create a new option hook called <code>solution</code>. It sets the current chunk’s <code>echo</code> option to <code>TRUE</code> and also triggers the new <code>solutionsetter</code> code chunk below. The updated <code>options</code> list needs to be returned explicitly, or the hook will not work.</p>
+<pre class="r"><code>knitr::opts_hooks$set(solution = function(options) {
+  options$echo &lt;- TRUE
+  options$solutionsetter &lt;- TRUE
+  return(options)
+})</code></pre>
+<p>Now all need to do is to set my chunk option to <code>solution = TRUE</code> and the output will be collapsible:</p>
+<pre class="default"><code>
+Create a variable `x`, and assign it a value of 5.
+
+```{r, solution = TRUE}
+x &lt;- 5
+```</code></pre>
+<p>Create a variable <code>x</code>, and assign it a value of 5.</p>
+<details>
+<summary>
+Suggested Solution
+</summary>
+<pre class="r"><code>x &lt;- 5</code></pre>
+</details>
+<hr>
+<div id="the-details-package" class="section level1">
+<h1>The details package</h1>
+<p>If you want a function to enclose the output of a chunk or inline code in <code>&lt;details&gt;</code> tags, use the <a href="https://cran.r-project.org/package=details">details</a> package by Jonathan Sidi. For example, an inline chunk like this:</p>
+<pre class="default"><code>`r details::details(&quot;Answer&quot;, summary = &quot;Question&quot;)`</code></pre>
+<p>Will output like so:</p>
+<details closed>
+<summary>
+<span title="Click to Expand"> Question </span>
+</summary>
+<pre class="r"><code>
+Answer
+</code></pre>
+</details>
+<p><br></p>
+<p>The package has many other uses, which are explained in the <a href="https://yonicd.github.io/details/articles/index.html">package’s vignettes</a>.</p>
+</div>

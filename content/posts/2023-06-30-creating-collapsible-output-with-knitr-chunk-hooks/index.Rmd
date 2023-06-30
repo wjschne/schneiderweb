@@ -1,0 +1,119 @@
+---
+title: Creating collapsible output with knitr chunk hooks
+author: W. Joel Schneider
+date: '2023-06-30'
+slug: creating-collapsible-output-with-knitr-chunk-hooks
+categories:
+  - knitr
+tags:
+  - R
+  - knitr hooks
+draft: no
+summary: "How to make the output of a knitr code chunk collapsible using knitr hooks."
+---
+
+
+
+I am writing a [(still very much unfinished) psychometrics book](https://individual-psychometrics.rbind.io/) with suggested exercises using R. I wanted to provide solutions to the questions, but I wanted to hide the answers until the reader clicks them. 
+
+An easy way to create collapsible content is with html's `<details>` tag. For example:
+
+````{verbatim, echo = TRUE}
+Create a variable `x`, and assign it a value of 5.
+
+<details>
+  <summary>Suggested Solution</summary>
+
+```{r}
+x <- 5
+```
+</details>
+````
+Create a variable `x`, and assign it a value of 5.
+
+<details>
+  <summary>Suggested Solution</summary>
+
+```{r}
+x <- 5
+```
+</details>
+
+<hr>
+
+However, I did not want to worry about all the `<details>` every time I wrote a question. To automate this process, I used two knitr hooks: a chunk hook and an option hook. 
+
+[Chunk hooks](https://bookdown.org/yihui/rmarkdown-cookbook/chunk-hooks.html) are for customizing the output of a chunk. 
+
+Here I create a new chunk hook that is run before and after the chunk. When it is run before the chunk, it adds the `<details>` and `<summary>` tags. After the chunk, it closes the `<details>` tag.
+
+```{r}
+
+
+
+
+# Add the details tag before running the chunk 
+# and close the tag after running the chunk.
+knitr::knit_hooks$set(
+  solutionsetter = function(before,options) {
+  
+  if (before) {
+    
+    "\n\n<details><summary>Suggested Solution</summary>\n\n"
+    
+  } else {
+    
+    "\n\n</details>\n\n"
+    
+  }
+})
+
+
+```
+
+If all we needed to do was to enclose the output into a `<details>` tag, then just the `solutionsetter` hook would be needed. However, I also wanted to set `echo=TRUE` so that the output would be visible even if the default for `echo` was `FALSE`. 
+
+[Option hooks](https://bookdown.org/yihui/rmarkdown-cookbook/option-hooks.html) are great for when you have a kind of chunk you will use often, and it requires setting many chunk options at once (e.g., a plot variant with different dimensions than your default plot has).
+
+Here I create a new option hook called `solution`. It sets the current chunk's `echo` option to `TRUE` and also triggers the new `solutionsetter` code chunk below. The updated  `options` list needs to be returned explicitly, or the hook will not work.
+
+```{r}
+knitr::opts_hooks$set(solution = function(options) {
+  options$echo <- TRUE
+  options$solutionsetter <- TRUE
+  return(options)
+})
+```
+
+
+Now all need to do is to set my chunk option to `solution = TRUE` and the output will be collapsible:
+
+````{verbatim}
+
+Create a variable `x`, and assign it a value of 5.
+
+```{r, solution = TRUE}
+x <- 5
+```
+````
+
+Create a variable `x`, and assign it a value of 5.
+
+```{r, solution = TRUE}
+x <- 5
+```
+<hr>
+
+# The details package
+
+If you want a function to enclose the output of a chunk or inline code in `<details>` tags, use the [details](https://cran.r-project.org/package=details) package by Jonathan Sidi. For example, an inline chunk like this:
+
+```{verbatim}
+`r details::details("Answer", summary = "Question")`
+```
+
+Will output like so:
+
+`r details::details("Answer", summary = "Question")`
+
+The package has many other uses, which are explained in the [package's vignettes](https://yonicd.github.io/details/articles/index.html).

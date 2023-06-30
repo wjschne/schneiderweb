@@ -15,48 +15,95 @@ draft: no
 <p>A function for retrieving a div or span from another markdown document</p>
 <!--more-->
 <p>While assembling a reply letter for a revise-and-resubmit document, I was documenting for reviewers how we addressed their concerns. The reply letter quoted numerous sentences and paragraphs that had been changed. Unfortunately, each time my co-authors and I edited the paper, I lost track of which sentences and paragraphs I had previously copied into the reply letter. I did not want to misquote my own paper.</p>
-<p>Copying-and-pasting with each edit was getting tedious, and it was an error-prone process. I decided to write a simple function that would retrieve a named div or span from the paper and print it as a quote in my reply letter. Here it is:</p>
+<p>Copying-and-pasting with each edit was getting tedious, and it was an error-prone process. I decided to write a function that would retrieve a named div or span from the paper and print it as a quote in my reply letter. Here it is:</p>
 <pre class="r"><code>get_quote &lt;- function(id, file, blockquote = TRUE) {
+  blocktext &lt;- ifelse(blockquote, &quot;\n&gt; &quot;, &quot;&quot;)
 
-  # Insert blockquote text
-  if (blockquote) {
-    blockchr &lt;- &quot;\n&gt; &quot;
-    } else {
-    blockchr &lt;- &quot;&quot;
+  refreplace &lt;- function(x) {
+    # List of sequence types
+    crossrefs &lt;- c(`@fig-` = &quot;Figure&quot;,
+                   `@fig-` = &quot;Table&quot;,
+                   `@eq-` = &quot;Equation&quot;,
+                   `@thm-` = &quot;Lemma&quot;,
+                   `@lem-` = &quot;Corollary&quot;,
+                   `@cor-` = &quot;Proposition&quot;,
+                   `@prp-` = &quot;Conjecture&quot;,
+                   `@cnj-` = &quot;Definition&quot;,
+                   `@def-` = &quot;Example&quot;,
+                   `@exm-` = &quot;Example&quot;,
+                   `@exr-` = &quot;Exercise&quot;,
+                   `apafg-` = &quot;Figure&quot;,
+                   `apatb-` = &quot;Figure&quot;
+    )
+
+    # Find all crossreference types and number them
+    make_replacements &lt;- function(x, reftype, prefix) {
+      regstring &lt;- ifelse(stringr::str_starts(reftype, &quot;\\@&quot;),
+                          paste0(&quot;\\&quot;, reftype, &quot;(.*?)(?=[\\.\\?\\!\\]\\}\\s,])&quot;),
+                          paste0(&quot;\\{&quot;, reftype, &quot;(.*?)\\}&quot;))
+      patterns &lt;- stringr::str_extract_all(string = x, pattern = regstring) |&gt;
+        unlist() |&gt;
+        unique() |&gt;
+        stringr::str_replace(&quot;\\{&quot;, &quot;\\\\{&quot;) |&gt;
+        stringr::str_replace(&quot;\\}&quot;, &quot;\\\\}&quot;)
+
+      if (all(is.na(patterns))) return(NULL)
+      replacements &lt;- paste(prefix, seq_along(patterns))
+      names(replacements) &lt;- patterns
+      replacements
+    }
+    allreplacements &lt;- purrr::map2(
+      names(crossrefs),
+      crossrefs,
+      \(rt, pf) make_replacements(
+        x = x,
+        reftype = rt,
+        prefix = pf)) |&gt;
+      unlist()
+
+    stringr::str_replace_all(x, allreplacements)
+
   }
 
-  #read in lines from file
-  filetext &lt;- readLines(file, warn = FALSE)
+  filetext &lt;- readLines(file) |&gt;
+    refreplace()
 
-  # collapse lines and search for span with id
+  idcount &lt;- sum(stringr::str_count(filetext, paste0(&quot;#&quot;, id)))
+  if (idcount &gt; 1)
+    stop(paste0(
+      &quot;The id (&quot;,
+      id ,
+      &quot;) is not unique. There are &quot;,
+      idcount,
+      &quot; instances of id = &quot;,
+      id,
+      &quot;.&quot;
+    ))
+
   s &lt;- filetext |&gt;
     paste0(collapse = &quot;\n&quot;) |&gt;
-    stringr::str_match(
-      pattern = paste0(
-        &quot;(?&lt;=\\[).+(?=\\]\\{\\#&quot;,
-        id,
-        &quot;\\})&quot;))  |&gt;
+    stringr::str_match(pattern = paste0(&quot;(?&lt;=\\[).+(?=\\]\\{\\#&quot;,
+                               id,
+                               &quot;\\})&quot;))  |&gt;
     getElement(1)
 
-  # If no span found, search for div with id
   if (is.na(s)) {
     s &lt;- filetext |&gt;
       paste0(collapse = &quot;|||&quot;) |&gt;
-      stringr::str_match(
-        pattern = paste0(
-          &quot;:::\\{\\#&quot;,
-          id,
-          &quot;\\}(.*?):::&quot;))  |&gt;
+      stringr::str_match(pattern = paste0(&quot;:::\\{\\#&quot;,
+                                 id,
+                                 &quot;\\}(.*?):::&quot;))  |&gt;
       getElement(2) |&gt;
-      stringr::str_replace_all(&quot;\\|\\|\\|&quot;, blockchr)
+      stringr::str_replace_all(&quot;\\|\\|\\|&quot;, blocktext)
   } else {
-    s &lt;- paste0(blockchr, s)
+    s &lt;- paste0(blocktext, s)
   }
 
-  if (is.na(s)) stop(&quot;Could not find id = &quot;, id)
+  if (is.na(s)) stop(&quot;Could not find a div or span with id = &quot;, id)
+
   s
 }</code></pre>
-<p>For your convenience and mine, I have added this function into the <a href="https://wjschne.github.io/WJSmisc/">WJSmisc package</a>.</p>
+<p>For your convenience and mine, I have added this function into the <a href="https://wjschne.github.io/WJSmisc/reference/get_quote.html">WJSmisc package</a>.</p>
 <div id="using-the-get_quote-function" class="section level1">
 <h1>Using the <code>get_quote</code> function</h1>
 <p>If the file has a span or div with a specified id, the <code>get_quote</code> function can find it. Suppose the file has a span with id of <code>id1</code> and a div with id of <code>id2</code>.</p>
@@ -69,7 +116,7 @@ This is the second paragraph.
 :::
 
 cat(get_quote(&quot;id2&quot;, &quot;index.Rmd&quot;))</code></pre>
-<p>You can pull text from the current file or another file. This file happened to be named <code>index.Rmd</code>. The text inside the span with id “#id1” can be extracted with inline chunks like so:</p>
+<p>You can pull text from the current file or another file. This file happened to be named <code>index.Rmd</code>. The text inside the span with id <code>id1</code> can be extracted with inline chunks like so:</p>
 <pre class="default"><code>`r get_quote(&quot;id1&quot;, &quot;index.Rmd&quot;)`</code></pre>
 <blockquote>
 <p>Text in a span</p>

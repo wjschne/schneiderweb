@@ -16,53 +16,101 @@ A function for retrieving a div or span from another markdown document
 
 While assembling a reply letter for a revise-and-resubmit document, I was documenting for reviewers how we addressed their concerns. The reply letter quoted numerous sentences and paragraphs that had been changed. Unfortunately, each time my co-authors and I edited the paper, I lost track of which sentences and paragraphs I had previously copied into the reply letter. I did not want to misquote my own paper.
 
-Copying-and-pasting with each edit was getting tedious, and it was an error-prone process. I decided to write a simple function that would retrieve a named div or span from the paper and print it as a quote in my reply letter. Here it is:
+Copying-and-pasting with each edit was getting tedious, and it was an error-prone process. I decided to write a function that would retrieve a named div or span from the paper and print it as a quote in my reply letter. Here it is:
 
 ```{r}
 get_quote <- function(id, file, blockquote = TRUE) {
+  blocktext <- ifelse(blockquote, "\n> ", "")
 
-  # Insert blockquote text
-  if (blockquote) {
-    blockchr <- "\n> "
-    } else {
-    blockchr <- ""
+  refreplace <- function(x) {
+    # List of sequence types
+    crossrefs <- c(`@fig-` = "Figure",
+                   `@fig-` = "Table",
+                   `@eq-` = "Equation",
+                   `@thm-` = "Lemma",
+                   `@lem-` = "Corollary",
+                   `@cor-` = "Proposition",
+                   `@prp-` = "Conjecture",
+                   `@cnj-` = "Definition",
+                   `@def-` = "Example",
+                   `@exm-` = "Example",
+                   `@exr-` = "Exercise",
+                   `apafg-` = "Figure",
+                   `apatb-` = "Figure"
+    )
+
+    # Find all crossreference types and number them
+    make_replacements <- function(x, reftype, prefix) {
+      regstring <- ifelse(stringr::str_starts(reftype, "\\@"),
+                          paste0("\\", reftype, "(.*?)(?=[\\.\\?\\!\\]\\}\\s,])"),
+                          paste0("\\{", reftype, "(.*?)\\}"))
+      patterns <- stringr::str_extract_all(string = x, pattern = regstring) |>
+        unlist() |>
+        unique() |>
+        stringr::str_replace("\\{", "\\\\{") |>
+        stringr::str_replace("\\}", "\\\\}")
+
+      if (all(is.na(patterns))) return(NULL)
+      replacements <- paste(prefix, seq_along(patterns))
+      names(replacements) <- patterns
+      replacements
+    }
+    allreplacements <- purrr::map2(
+      names(crossrefs),
+      crossrefs,
+      \(rt, pf) make_replacements(
+        x = x,
+        reftype = rt,
+        prefix = pf)) |>
+      unlist()
+
+
+    stringr::str_replace_all(x, allreplacements)
+
   }
 
-  #read in lines from file
-  filetext <- readLines(file, warn = FALSE)
+  filetext <- readLines(file) |>
+    refreplace()
 
-  # collapse lines and search for span with id
+  idcount <- sum(stringr::str_count(filetext, paste0("#", id)))
+  if (idcount > 1)
+    stop(paste0(
+      "The id (",
+      id ,
+      ") is not unique. There are ",
+      idcount,
+      " instances of id = ",
+      id,
+      "."
+    ))
+
   s <- filetext |>
     paste0(collapse = "\n") |>
-    stringr::str_match(
-      pattern = paste0(
-        "(?<=\\[).+(?=\\]\\{\\#",
-        id,
-        "\\})"))  |>
+    stringr::str_match(pattern = paste0("(?<=\\[).+(?=\\]\\{\\#",
+                               id,
+                               "\\})"))  |>
     getElement(1)
 
-  # If no span found, search for div with id
   if (is.na(s)) {
     s <- filetext |>
       paste0(collapse = "|||") |>
-      stringr::str_match(
-        pattern = paste0(
-          ":::\\{\\#",
-          id,
-          "\\}(.*?):::"))  |>
+      stringr::str_match(pattern = paste0(":::\\{\\#",
+                                 id,
+                                 "\\}(.*?):::"))  |>
       getElement(2) |>
-      stringr::str_replace_all("\\|\\|\\|", blockchr)
+      stringr::str_replace_all("\\|\\|\\|", blocktext)
   } else {
-    s <- paste0(blockchr, s)
+    s <- paste0(blocktext, s)
   }
 
-  if (is.na(s)) stop("Could not find id = ", id)
+  if (is.na(s)) stop("Could not find a div or span with id = ", id)
+
   s
 }
 
 ```
 
-For your convenience and mine, I have added this function into the [WJSmisc package](https://wjschne.github.io/WJSmisc/).
+For your convenience and mine, I have added this function into the [WJSmisc package](https://wjschne.github.io/WJSmisc/reference/get_quote.html).
 
 # Using the `get_quote` function
 
@@ -80,7 +128,7 @@ This is the second paragraph.
 cat(get_quote("id2", "index.Rmd"))
 ```
 
-You can pull text from the current file or another file. This file happened to be named `index.Rmd`. The text inside the span with id "#id1" can be extracted with inline chunks like so:
+You can pull text from the current file or another file. This file happened to be named `index.Rmd`. The text inside the span with id `id1` can be extracted with inline chunks like so:
 
 ```{verbatim}
 `r get_quote("id1", "index.Rmd")`
@@ -122,3 +170,5 @@ You can trick the function into thinking that the extra stuff is part of the id 
 
 
 `r get_quote("id3 .myclass", "index.Rmd")`
+
+
